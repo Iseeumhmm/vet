@@ -1,0 +1,49 @@
+<%- include("partials/header") -%>
+
+<h1>
+   <i class="fas fa-<%= Animal %> fa-5x"></i>
+</h1>
+
+<p>
+
+
+</p>
+
+<form class="categ" action="/drugs" method="post">
+  <select class="dropDown" name="Categories" onchange="this.form.submit()">
+    <option>Drug Category</option>
+    <% categories.forEach(function(category){ %>
+    <option  value="<%= category %>"><%= category %></option>
+    <% }); %>
+
+  </select>
+
+</form>
+<form  action="/drugs" method="post">
+  <select class="dropDown subCatDrop" name="subCategories" onchange="this.form.submit()">
+    <option>Sub Category</option>
+    <% categories.forEach(function(category){ %>
+    <option  value="<%= category %>"><%= category %></option>
+    <% }); %>
+
+  </select>
+
+</form>
+</form>
+<form href="/">
+  <select class="dropDown drugNameDrop" name="drug" onchange="this.form.submit()">
+    <option>Drug</option>
+    <% categories.forEach(function(category){ %>
+    <option  value="<%= category %>"><%= category %></option>
+    <% }); %>
+
+  </select>
+
+</form>
+
+</div>
+
+<script src="/jquery/jquery.js"></script>
+<script src="script.js" charset="utf-8"></script>
+
+<%- include("partials/footer") -%>
