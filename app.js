@@ -1,24 +1,26 @@
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const jsonData = require(__dirname + "/data.json");
-const $ = require('jquery');
 const _ = require("lodash");
 
+// Variables
 let categories = [];
-let animal = "";
-let subCategory = [];
+let passData = {
+  Animal: "",
+  categories: categories,
+  subCategory: [],
+  categoryTitle: "Category"
+};
 
+// Create Category Array from JSON
 for (let category in jsonData.Category) {
   categories.push(category);
 }
 
-
+// Setup Server
 const app = express();
-
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -29,37 +31,66 @@ app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
 
-app.get("/", function(req, res){
+// Get Routing Functions
+
+// Home Route
+
+app.get("/", function(req, res) {
+  clearData();
   res.render("home");
 });
 
-app.post("/", function(req, res){
-  animal = req.body.Animal;
-  res.redirect("drugs");
-});
-
-app.get("/drugs", function(req, res){
-  const passData = {Animal: _.lowerCase(animal), categories: categories, subCategory: subCategory, categoryTitle: "Category"};
-  res.render("drugs", {data: passData});
-});
-
-app.post("/drugs", function(req, res){
-  const category = req.body.Categories;
-
-  if (category) {
-    const subJSON = jsonData.Category[category];
-    for (let sub in subJSON){
-      subCategory.push(sub);
-    }
-    res.redirect("drugs");
+app.post("/", function(req, res) {
+  // check to see if it's being redirected to home page
+  if (req.body.name === "homePage") {
+    res.redirect("/");
+  } else {
+    passData.Animal = _.lowerCase(req.body.Animal);
+    res.redirect("category");
   }
 });
 
-app.get("/:submit", function(req, res){
+// Drugs Route
+
+app.get("/category", function(req, res) {
+  res.render("category", {
+    data: passData
+  });
+});
+
+// Dynamic Route
+
+app.get("/:submit", function(req, res) {
+
+  let subCategory = [];
   const submitQuery = req.params.submit;
-  console.log(submitQuery);
+
+  // populate subCategory Array
+  if (subCategory.length == 0) {
+    const subJSON = jsonData.Category[submitQuery];
+    for (let sub in subJSON) {
+      subCategory.push(sub);
+    }
+  }
+
+  // Update the passData object to be returned
+  passData.categoryTitle = submitQuery;
+  passData.subCategory = subCategory;
+
+  res.render("category", {
+    data: passData
+  });
 
 });
 
+app.get("/:first/:second", function(req, res){
+
+});
 
 // Functions
+
+function clearData() {
+  passData.subCategory = [];
+  passData.Animal = "";
+  passData.categoryTitle = "Category"
+}

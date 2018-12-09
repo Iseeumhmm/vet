@@ -1,8 +1,15 @@
 <%- include("partials/header") -%>
 
+<!-- Page Icon showing witch animal is being searched -->
+
 <h1>
-   <i class="fas fa-<%= data.Animal %> fa-5x"></i>
+  <form action="/" method="post">
+    <button type="submit" name="name" value="homePage" class="fas fa-<%= data.Animal %> fa-5x"></button>
+  </form>
+
 </h1>
+
+<!-- Category Dropdown -->
 
 <div class="dropdown show">
   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -12,34 +19,31 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
     <% data.categories.forEach(function(category){ %>
-      <a class="dropdown-item" href="/<%= category %>"><%= category %></a>
+    <a class="dropdown-item" href="/<%= category %>">
+      <%= category %></a>
     <% }); %>
 
   </div>
 </div>
 
-
-
-
-<form  action="/drugs" method="post">
-  <p>
-    <%= data.subCategory %>
-    </p>
-  <select class="dropDown subCatDrop" name="subCategories" onchange="this.form.submit()">
-    <option>Sub Category</option>
-    <% data.subCategory.forEach(function(category){ %>
-    <option  value="<%= category %>"><%= category %></option>
-    <% }); %>
-
-  </select>
-
-</form>
-
+<div class="list-group">
+  <% data.subCategory.forEach(function(category){ %>
+  <a class="list list-group-item list-group-flush list-group-item-action" href="/<%= data.categoryTitle %>/<%= category %>">
+    <%= category %></a>
+  <% }); %>
 
 </div>
 
+<!-- End of HTML -->
+</div>
+
+<!-- Local Scripts -->
+
 <script src="/jquery/jquery.js"></script>
 <script src="script.js" charset="utf-8"></script>
+
+<!-- CDN Script Sources -->
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

@@ -6,15 +6,15 @@
   vertical-align: bottom;
 }
 
-.dropDown {
+.dropdown {
   margin-bottom: 15px;
-  width: 190px;
 }
 
-.subCatDrop {
-  visibility: visible;
-}
+.list-group{
+      display:inline-block;
+ }
 
-.drugNameDrop{
-  visibility: hidden;
-}
+ .fas {
+   background: none;
+   border: 0px;
+ }
