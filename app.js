@@ -83,7 +83,17 @@ app.get("/:submit", function(req, res) {
 
 });
 
+// Gather passed Category data and pass drugs to drug-list
 app.get("/:first/:second", function(req, res){
+const passedSubCategory = req.params.second;
+const passedCategory = req.params.first;
+const dataFromJSON = jsonData.Category[passedCategory][passedSubCategory];
+let categoryData = [];
+for (let data in dataFromJSON){
+  categoryData.push(data);
+}
+console.log("array of drugs: " + categoryData);
+res.render("drug-list", {category: passedSubCategory, drugs: categoryData});
 
 });
 

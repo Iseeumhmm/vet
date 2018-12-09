@@ -1,0 +1,13 @@
+<%- include("partials/header") -%>
+
+<h1><%= category %></h1>
+
+<div class="list-group list-group-flush">
+  <% drugs.forEach(function(drug){ %>
+  <a class="list list-group-item list-group-item-action" href="/<%= category %>/<%= drug %>">
+    <%= drug %></a>
+  <% }); %>
+
+</div>
+
+<%- include("partials/footer") -%>
