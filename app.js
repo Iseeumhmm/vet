@@ -83,25 +83,41 @@ app.get("/:submit", function(req, res) {
 });
 
 // Gather passed Sub Category data and pass drugs to drug-list
-app.get("/:first/:second", function(req, res){
-const passedSubCategory = req.params.second;
-const passedCategory = req.params.first;
-const dataFromJSON = jsonData[passedCategory][passedSubCategory];
-let categoryData = [];
-let capitalAnimal = _.startCase(passData.Animal);
-for (let data in dataFromJSON){
+app.get("/:first/:second", function(req, res) {
+  // Variables
+  const passedSubCategory = req.params.second;
+  const passedCategory = req.params.first;
+  const dataFromJSON = jsonData[passedCategory][passedSubCategory];
+  let categoryData = [];
+  let capitalAnimal = _.startCase(passData.Animal);
 
-  // Get drug Details
-  let detailsFromJSON = jsonData[passedCategory][passedSubCategory][data][capitalAnimal];
-  let detailsForPassing = {
-    drugName: data,
-    drugDetails: detailsFromJSON
-  };
-  categoryData.push(detailsForPassing);
+  // Iterate through all drugs in Subcategory
+  for (let data in dataFromJSON) {
+    // Get each of the drug details in this subcategory
+    const detailsFromJSON = jsonData[passedCategory][passedSubCategory][data][capitalAnimal];
+    // Check to see if the drug has labeled dosage for current animal
+    if (detailsFromJSON) {
+      // Create object and push to categoryArray
+      pushData(data, detailsFromJSON, categoryData);
+    } else {
+      // Create stand in data for drugs that don't have doseage for current animal
+      const detailsFromJSON = {
+        Method: "Not Labeled for " + capitalAnimal + "s",
+        Frequency: "------",
+        minAmount: "------",
+        maxAmount: "------",
+      };
+      // Create object and push to categoryArray
+      pushData(data, detailsFromJSON, categoryData);
 
-}
-res.render("drug-list", {category: passedSubCategory, drugs: categoryData});
-
+      console.log("error no drugs for " + capitalAnimal + "s");
+    }
+  }
+  res.render("drug-list", {
+    category: passedSubCategory,
+    drugs: categoryData,
+    animal: passData.Animal
+  });
 });
 
 // Functions
@@ -111,3 +127,16 @@ function clearData() {
   passData.Animal = "";
   passData.categoryTitle = "Category"
 }
+
+function pushData(_data, JSONdetails, dataArray) {
+  let detailsForPassing = {
+    drugName: _data,
+    drugDetails: JSONdetails
+  };
+  // Create Array of {drugName: drugsDetails: } for sending to drug-list
+  dataArray.push(detailsForPassing);
+}
+
+// Notes:
+//
+// * when refeshing /category icon disappears

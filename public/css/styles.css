@@ -4,6 +4,7 @@
 
 .animals {
   vertical-align: bottom;
+  margin: 15px;
 }
 
 .dropdown {
@@ -17,4 +18,8 @@
  .fas {
    background: none;
    border: 0px;
+ }
+
+ .top-left {
+   float: left;
  }

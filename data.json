@@ -6,8 +6,7 @@
           "Method": "SC IM",
           "Frequency": "BID",
           "minAmount": 10,
-          "maxAmount": 10,
-          "Measurement": "mg/kg"
+          "maxAmount": 10
         }
       }
     },
@@ -17,7 +16,6 @@
           "Method": "IV SC",
           "minAmount": 30,
           "maxAmount": 30,
-          "Measurement": "mg/kg",
           "Notes": "Anecdotal",
           "Frequency": "TID"
         },
@@ -25,7 +23,6 @@
           "Method": "IV SC",
           "minAmount": 30,
           "maxAmount": 30,
-          "Measurement": "mg/kg",
           "Notes": "Anecdotal",
           "Frequency": "TID"
         }
@@ -39,7 +36,6 @@
           "Method": "SC IM",
           "minAmount": 10,
           "maxAmount": 10,
-          "Measurement": "mg/kg",
           "Notes": "",
           "Frequency": "TID"
         }

@@ -1,5 +1,7 @@
 <%- include("partials/header") -%>
-
+<form action="/" method="post">
+  <button type="submit" name="name" value="homePage" class="top-left fas fa-<%= animal %> fa-3x"></button>
+</form>
 <h1><%= category %></h1>
 
 <table class="table table-striped">
@@ -8,8 +10,8 @@
       <th scope="col">Drug</th>
       <th scope="col">Method</th>
       <th scope="col">Frequency</th>
-      <th scope="col">Min Mg/Kg</th>
-      <th scope="col">Max Mg/Kg</th>
+      <th scope="col">MIN mg/kg</th>
+      <th scope="col">MAX mg/kg</th>
     </tr>
   </thead>
   <tbody>
