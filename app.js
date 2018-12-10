@@ -14,7 +14,7 @@ let passData = {
 };
 
 // Create Category Array from JSON
-for (let category in jsonData.Category) {
+for (let category in jsonData) {
   categories.push(category);
 }
 
@@ -67,7 +67,7 @@ app.get("/:submit", function(req, res) {
 
   // populate subCategory Array
   if (subCategory.length == 0) {
-    const subJSON = jsonData.Category[submitQuery];
+    const subJSON = jsonData[submitQuery];
     for (let sub in subJSON) {
       subCategory.push(sub);
     }
@@ -76,23 +76,30 @@ app.get("/:submit", function(req, res) {
   // Update the passData object to be returned
   passData.categoryTitle = submitQuery;
   passData.subCategory = subCategory;
-
   res.render("category", {
     data: passData
   });
 
 });
 
-// Gather passed Category data and pass drugs to drug-list
+// Gather passed Sub Category data and pass drugs to drug-list
 app.get("/:first/:second", function(req, res){
 const passedSubCategory = req.params.second;
 const passedCategory = req.params.first;
-const dataFromJSON = jsonData.Category[passedCategory][passedSubCategory];
+const dataFromJSON = jsonData[passedCategory][passedSubCategory];
 let categoryData = [];
+let capitalAnimal = _.startCase(passData.Animal);
 for (let data in dataFromJSON){
-  categoryData.push(data);
+
+  // Get drug Details
+  let detailsFromJSON = jsonData[passedCategory][passedSubCategory][data][capitalAnimal];
+  let detailsForPassing = {
+    drugName: data,
+    drugDetails: detailsFromJSON
+  };
+  categoryData.push(detailsForPassing);
+
 }
-console.log("array of drugs: " + categoryData);
 res.render("drug-list", {category: passedSubCategory, drugs: categoryData});
 
 });

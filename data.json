@@ -1,93 +1,47 @@
 {
-  "Category": {
-    "Antibiotics": {
-      "Aminocyclitols": {
-        "Amkacin": {
-          "Dog": {
-            "Labeled": {
-              "Method": "SC or IM twice daily",
-              "minAmount": 10,
-              "maxAmount": 10,
-              "Measurement": "mg/kg"
-            },
-            "Extra-Label": {
-              "Usage": "Susceptible infections and empirical therapy",
-              "Method": "IV, IM, SC once daily",
-              "minAmount": 10,
-              "maxAmount": 15,
-              "Measurement": "mg/kg",
-              "Notes": "Dosage should be adjusted based on kidney function and serum levels when possible"
-            }
-          },
-          "Cat": {
-            "Labeled": {},
-            "Extra-Label": {
-              "Usage": "Susceptible infections and empirical therapy",
-              "Method": "IV, IM, SC once daily",
-              "minAmount": 10,
-              "maxAmount": 15,
-              "Measurement": "mg/kg",
-              "Notes": "Dosage should be adjusted based on kidney function and serum levels when possible"
-            }
-          }
-        }
-      },
-      "Carbapenems": {
-        "Ertapenem Sodium": {
-          "Animals": {
-            "Dog": {
-              "Labeled": {},
-              "Extra-Label": {
-                "Usage": "",
-                "Method": "IV or SC every 8 hours",
-                "minAmount": 30,
-                "maxAmount": 30,
-                "Measurement": "mg/kg",
-                "Notes": "Considered investigational"
-              }
-            },
-
-            "Cat": {
-              "Labeled": {},
-              "Extra-Label": {
-                "Usage": "Considered investigational",
-                "Method": "IV or SC every 8 hours",
-                "minAmount": 30,
-                "maxAmount": 30,
-                "Measurement": "mg/kg",
-                "Notes": "Considered investigational"
-              }
-            }
-          }
+  "Antibiotics": {
+    "Aminocyclitols": {
+      "Amkacin": {
+        "Dog": {
+          "Method": "SC IM",
+          "Frequency": "BID",
+          "minAmount": 10,
+          "maxAmount": 10,
+          "Measurement": "mg/kg"
         }
       }
     },
+    "Carbapenems": {
+      "Ertapenem Sodium": {
+        "Dog": {
+          "Method": "IV SC",
+          "minAmount": 30,
+          "maxAmount": 30,
+          "Measurement": "mg/kg",
+          "Notes": "Anecdotal",
+          "Frequency": "TID"
+        },
+        "Cat": {
+          "Method": "IV SC",
+          "minAmount": 30,
+          "maxAmount": 30,
+          "Measurement": "mg/kg",
+          "Notes": "Anecdotal",
+          "Frequency": "TID"
+        }
+      }
+    }
+  },
+  "Central Nervous System Drugs": {
     "Anticonvulsants": {
-      "Standard": {
-        "Imepitoin": {
-          "Animals": {
-            "Dog": {
-              "Labeled": {
-                "Method": "SC or IM twice daily",
-                "minAmount": 10,
-                "maxAmount": 10,
-                "Measurement": "mg/kg",
-                "Notes": ""
-              },
-              "Extra-Label": {
-                "Usage": "Susceptible infections and empirical therapy",
-                "Method": "IV, IM, SC once daily",
-                "minAmount": 10,
-                "maxAmount": 15,
-                "Measurement": "mg/kg",
-                "Notes": "Dosage should be adjusted based on kidney function and serum levels when possible"
-              }
-            },
-            "Cat": {
-              "Labeled": {},
-              "Extra-Label": {}
-            }
-          }
+      "Imepitoin": {
+        "Dog": {
+          "Method": "SC IM",
+          "minAmount": 10,
+          "maxAmount": 10,
+          "Measurement": "mg/kg",
+          "Notes": "",
+          "Frequency": "TID"
         }
       }
     }
