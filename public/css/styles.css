@@ -2,9 +2,16 @@
   text-align: center;
 }
 
+/* Category Page */
+
 .animals {
   vertical-align: bottom;
   margin: 15px;
+}
+
+.catInput {
+  text-align: center;
+  width: 5rem;
 }
 
 .dropdown {
@@ -20,6 +27,15 @@
    border: 0px;
  }
 
+/* Drug List Page */
+
  .top-left {
    float: left;
+   font-size: 1rem;
+ }
+
+ .weightText{
+   position: absolute;
+   font-weight: 800;
+   margin: 29px 55px 0px;
  }

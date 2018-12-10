@@ -8,10 +8,14 @@ const _ = require("lodash");
 let categories = [];
 let passData = {
   Animal: "",
+  weight: 0,
   categories: categories,
   subCategory: [],
   categoryTitle: "Category"
 };
+
+// Json data is being corrupted each time weight is calculated, adding and adding on
+// - maybe add a second jsonData to be refreshed from original each time?
 
 // Create Category Array from JSON
 for (let category in jsonData) {
@@ -50,12 +54,18 @@ app.post("/", function(req, res) {
   }
 });
 
-// Drugs Route
+// Category Routes
 
 app.get("/category", function(req, res) {
   res.render("category", {
     data: passData
   });
+});
+// Record the weight sent from category page
+app.post("/category", function(req, res){
+  const weight = req.body.weight;
+  passData.weight = weight;
+  res.redirect("category");
 });
 
 // Dynamic Route
@@ -98,6 +108,9 @@ app.get("/:first/:second", function(req, res) {
     // Check to see if the drug has labeled dosage for current animal
     if (detailsFromJSON) {
       // Create object and push to categoryArray
+      detailsFromJSON.minAmount = detailsFromJSON.minAmount * passData.weight;
+      detailsFromJSON.maxAmount = detailsFromJSON.maxAmount * passData.weight;
+
       pushData(data, detailsFromJSON, categoryData);
     } else {
       // Create stand in data for drugs that don't have doseage for current animal
@@ -116,7 +129,8 @@ app.get("/:first/:second", function(req, res) {
   res.render("drug-list", {
     category: passedSubCategory,
     drugs: categoryData,
-    animal: passData.Animal
+    animal: passData.Animal,
+    weight: passData.weight
   });
 });
 
@@ -126,6 +140,7 @@ function clearData() {
   passData.subCategory = [];
   passData.Animal = "";
   passData.categoryTitle = "Category"
+  passData.weight = null;
 }
 
 function pushData(_data, JSONdetails, dataArray) {

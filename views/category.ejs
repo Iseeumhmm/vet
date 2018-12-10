@@ -2,17 +2,17 @@
 
 <!-- Page Icon showing witch animal is being searched -->
 
-<h1>
-  <form action="/" method="post">
-    <button type="submit" name="name" value="homePage" class="fas fa-<%= data.Animal %> fa-3x"></button>
-  </form>
+<form action="/" method="post">
+  <button type="submit" name="name" value="homePage" class="fas fa-<%= data.Animal %> fa-7x"></button>
+</form>
 
-</h1>
-
+<form action="/category" method="post">
+  <input class="catInput" id="weightInput" type="number" name="weight" placeHolder="<%= data.weight %>" onchange="this.form.submit();">
+</form>
 <!-- Category Dropdown -->
 
 <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <%= data.categoryTitle %>
   </a>
 
