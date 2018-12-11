@@ -9,10 +9,21 @@
   margin: 15px;
 }
 
-.catInput {
-  text-align: center;
+.wInput {
+  position: relative;
+  left: 11px;
+}
+
+input.inputBtn {
   width: 5rem;
 }
+
+
+.inputBtn {
+  margin-bottom: 5px;
+
+}
+
 
 .dropdown {
   margin-bottom: 15px;

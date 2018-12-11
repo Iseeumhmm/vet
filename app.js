@@ -29,6 +29,11 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
+app.use((req, res, next) => {
+  res.setHeader('Expires', '-1');
+  res.setHeader('Cache-Control', 'no-cache');
+  next();
+});
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 
 app.listen(3000, function() {
@@ -62,10 +67,11 @@ app.get("/category", function(req, res) {
   });
 });
 // Record the weight sent from category page
-app.post("/category", function(req, res){
+app.post("/category", function(req, res) {
   const weight = req.body.weight;
+  console.log(req.body);
   passData.weight = weight;
-  res.redirect("category");
+
 });
 
 // Dynamic Route
@@ -86,6 +92,7 @@ app.get("/:submit", function(req, res) {
   // Update the passData object to be returned
   passData.categoryTitle = submitQuery;
   passData.subCategory = subCategory;
+  res.header("Cache-Control: no-cache, no-store");
   res.render("category", {
     data: passData
   });
@@ -100,17 +107,13 @@ app.get("/:first/:second", function(req, res) {
   const dataFromJSON = jsonData[passedCategory][passedSubCategory];
   let categoryData = [];
   let capitalAnimal = _.startCase(passData.Animal);
-
   // Iterate through all drugs in Subcategory
   for (let data in dataFromJSON) {
     // Get each of the drug details in this subcategory
-    const detailsFromJSON = jsonData[passedCategory][passedSubCategory][data][capitalAnimal];
+    var detailsFromJSON = jsonData[passedCategory][passedSubCategory][data][capitalAnimal];
     // Check to see if the drug has labeled dosage for current animal
     if (detailsFromJSON) {
       // Create object and push to categoryArray
-      detailsFromJSON.minAmount = detailsFromJSON.minAmount * passData.weight;
-      detailsFromJSON.maxAmount = detailsFromJSON.maxAmount * passData.weight;
-
       pushData(data, detailsFromJSON, categoryData);
     } else {
       // Create stand in data for drugs that don't have doseage for current animal
@@ -126,12 +129,18 @@ app.get("/:first/:second", function(req, res) {
       console.log("error no drugs for " + capitalAnimal + "s");
     }
   }
+  // For testing only
+  categoryData.forEach(function(ele) {
+    console.log("categoryData: " + ele.drugDetails.maxAmount);
+  });
+
   res.render("drug-list", {
     category: passedSubCategory,
     drugs: categoryData,
     animal: passData.Animal,
-    weight: passData.weight
+    weight: passData.weight,
   });
+
 });
 
 // Functions
@@ -143,12 +152,13 @@ function clearData() {
   passData.weight = null;
 }
 
-function pushData(_data, JSONdetails, dataArray) {
+function pushData(_data, _JSONdetails, dataArray) {
   let detailsForPassing = {
     drugName: _data,
-    drugDetails: JSONdetails
+    drugDetails: _JSONdetails
   };
   // Create Array of {drugName: drugsDetails: } for sending to drug-list
+
   dataArray.push(detailsForPassing);
 }
 

@@ -27,6 +27,47 @@
           "Frequency": "TID"
         }
       }
+    },
+    "Cephalosporins": {
+      "Cephalexin": {
+        "Dog": {
+          "Method": "PO",
+          "Frequency": "BID",
+          "minAmount": 22,
+          "maxAmount": 22
+        }
+      }
+    },
+    "Penicillins": {
+      "Amoxicillin": {
+        "Dog": {
+          "Method": "PO",
+          "minAmount": 11,
+          "maxAmount": 11,
+          "Frequency": "BID"
+        },
+        "Cat": {
+          "Method": "PO",
+          "minAmount": 11,
+          "maxAmount": 22,
+          "Frequency": "SID"
+        }
+      },
+      "Amoxicillin/Clavulanic Acid": {
+        "Dog": {
+          "Method": "PO",
+          "minAmount": 13.75,
+          "maxAmount": 13.75,
+          "Frequency": "SID"
+        },
+        "Cat": {
+          "Method": "PO",
+          "minAmount": "62.5mg(tab)",
+          "maxAmount": "62.5mg(tab)",
+          "tablet": true,
+          "Frequency": "SID"
+        }
+      }
     }
   },
   "Central Nervous System Drugs": {

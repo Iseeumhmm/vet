@@ -1,14 +1,30 @@
 <%- include("partials/header") -%>
 
 <!-- Page Icon showing witch animal is being searched -->
-
 <form action="/" method="post">
   <button type="submit" name="name" value="homePage" class="fas fa-<%= data.Animal %> fa-7x"></button>
 </form>
 
-<form action="/category" method="post">
-  <input class="catInput" id="weightInput" type="number" name="weight" placeHolder="<%= data.weight %>" onchange="this.form.submit();">
-</form>
+<div class="wInput">
+  <form action="/category" method="post">
+    <input class="inputBtn" id="weightInput" type="number" name="weight" value="<%= data.weight %>" onchange="this.form.submit();">
+    <label for="weightInput">kgs</label>
+    <input type="hidden" id="postId" name="meausements" value="kgs">
+  </form>
+</div>
+
+
+
+
+<div class="inputBtn btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active" >
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> kgs
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> lbs
+  </label>
+</div>
+
 <!-- Category Dropdown -->
 
 <div class="dropdown show">
@@ -47,5 +63,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 
 <%- include("partials/footer") -%>
