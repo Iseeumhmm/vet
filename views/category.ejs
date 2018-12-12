@@ -6,15 +6,14 @@
 </form>
 
 <div class="wInput">
-  <form action="/category" method="post">
-    <input class="inputBtn" id="weightInput" type="number" name="weight" value="<%= data.weight %>" onchange="this.form.submit();">
-    <label for="weightInput">kgs</label>
-    <input type="hidden" id="postId" name="meausements" value="kgs">
+  <form id="weight" action="/category" method="post">
+    <input class="inputBtn" id="weightInput" type="number" name="weight" value="<%= data.weight %>" onchange="this.form.submit()" >
+    <label for="weightInput"><%= data.units %></label>
+    <input type="hidden" id="postId" name="units" value="kgs">
   </form>
 </div>
 
-
-
+<!-- Lbs Kgs toggle  -->
 
 <div class="inputBtn btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active" >
@@ -41,6 +40,8 @@
 
   </div>
 </div>
+
+<!-- Subcategory dropdown -->
 
 <div class="list-group">
   <% data.subCategory.forEach(function(category){ %>

@@ -8,7 +8,8 @@ const _ = require("lodash");
 let categories = [];
 let passData = {
   Animal: "",
-  weight: 0,
+  weight: null,
+  units: "kgs",
   categories: categories,
   subCategory: [],
   categoryTitle: "Category"
@@ -46,6 +47,7 @@ app.listen(3000, function() {
 
 app.get("/", function(req, res) {
   clearData();
+  passData.units = "kgs";
   res.render("home");
 });
 
@@ -68,10 +70,8 @@ app.get("/category", function(req, res) {
 });
 // Record the weight sent from category page
 app.post("/category", function(req, res) {
-  const weight = req.body.weight;
-  console.log(req.body);
-  passData.weight = weight;
-
+  passData.weight = req.body.weight;
+  passData.units = req.body.units;
 });
 
 // Dynamic Route
@@ -125,20 +125,21 @@ app.get("/:first/:second", function(req, res) {
       };
       // Create object and push to categoryArray
       pushData(data, detailsFromJSON, categoryData);
-
-      console.log("error no drugs for " + capitalAnimal + "s");
     }
   }
-  // For testing only
-  categoryData.forEach(function(ele) {
-    console.log("categoryData: " + ele.drugDetails.maxAmount);
-  });
+
+  let converter = 1;
+  if (passData.units === "lbs") {
+    converter = 0.454545;
+  }
 
   res.render("drug-list", {
     category: passedSubCategory,
     drugs: categoryData,
     animal: passData.Animal,
     weight: passData.weight,
+    units: passData.units,
+    converter: converter
   });
 
 });

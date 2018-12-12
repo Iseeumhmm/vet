@@ -3,7 +3,7 @@
   <button type="submit" name="name" value="homePage" class="top-left fas fa-<%= animal %> fa-3x"></button>
 </form>
 <p class="weightText">
-  <%= weight %> kgs
+  <%= weight %> <%= units %>
   </p>
 <h1><%= category %> (Dosages in mg/kg)</h1>
 
@@ -23,22 +23,21 @@
       <th scope="row"><%= drug.drugName %></th>
       <td><%= drug.drugDetails.Method %></td>
       <td><%= drug.drugDetails.Frequency %></td>
-      <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount === "------") { %>
+      <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount  === "------") { %>
         <td><%= (drug.drugDetails.minAmount) %></td>
       <% } else { %>
-      <td><%= (drug.drugDetails.minAmount * weight) %></td>
+      <td><%= (drug.drugDetails.minAmount * (weight * converter)).toFixed(2) %></td>
       <% } %>
       <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount === "------") { %>
         <td><%= (drug.drugDetails.maxAmount) %></td>
       <% } else { %>
-      <td><%= (drug.drugDetails.maxAmount * weight) %></td>
+      <td><%= (drug.drugDetails.maxAmount * (weight * converter)).toFixed(2) %></td>
       <% } %>
     </tr>
     <% }); %>
 
   </tbody>
 </table>
-
 
 
 <%- include("partials/footer") -%>
