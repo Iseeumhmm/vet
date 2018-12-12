@@ -3,25 +3,18 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const jsonData = require(__dirname + "/data.json");
 const _ = require("lodash");
-
 // Variables
 let categories = [];
 let passData = {
   Animal: "",
   weight: null,
   units: "kgs",
-  categories: categories,
+  categories: [],
   subCategory: [],
-  categoryTitle: "Category"
+  firstCategory: ""
 };
+let subCategoryPage = false;
 
-// Json data is being corrupted each time weight is calculated, adding and adding on
-// - maybe add a second jsonData to be refreshed from original each time?
-
-// Create Category Array from JSON
-for (let category in jsonData) {
-  categories.push(category);
-}
 
 // Setup Server
 const app = express();
@@ -74,30 +67,27 @@ app.post("/category", function(req, res) {
   passData.units = req.body.units;
 });
 
-// Dynamic Route
-
-app.get("/:submit", function(req, res) {
-
-  let subCategory = [];
-  const submitQuery = req.params.submit;
-
-  // populate subCategory Array
-  if (subCategory.length == 0) {
-    const subJSON = jsonData[submitQuery];
-    for (let sub in subJSON) {
-      subCategory.push(sub);
-    }
+app.get("/category-select", function(req, res){
+  if (!subCategoryPage) {
+    passData.categories = getCategories(jsonData);
   }
-
-  // Update the passData object to be returned
-  passData.categoryTitle = submitQuery;
-  passData.subCategory = subCategory;
-  res.header("Cache-Control: no-cache, no-store");
-  res.render("category", {
+  res.render("category-select", {
     data: passData
   });
-
 });
+
+app.post("/category-select", function(req, res){
+  const category = req.body.category;
+  console.log(category);
+  passData.categories = getSubcategories(category);
+  subCategoryPage = true;
+  res.render("category-select", {
+    data: passData
+  });
+});
+
+// Dynamic Route
+
 
 // Gather passed Sub Category data and pass drugs to drug-list
 app.get("/:first/:second", function(req, res) {
@@ -149,7 +139,7 @@ app.get("/:first/:second", function(req, res) {
 function clearData() {
   passData.subCategory = [];
   passData.Animal = "";
-  passData.categoryTitle = "Category"
+  passData.firstCategory = ""
   passData.weight = null;
 }
 
@@ -159,10 +149,42 @@ function pushData(_data, _JSONdetails, dataArray) {
     drugDetails: _JSONdetails
   };
   // Create Array of {drugName: drugsDetails: } for sending to drug-list
-
   dataArray.push(detailsForPassing);
 }
 
-// Notes:
-//
-// * when refeshing /category icon disappears
+
+// Create Category Array from JSON
+function getCategories(json) {
+  let categories = [];
+  for (let category in json) {
+    categories.push(category);
+  }
+  return categories;
+}
+
+
+// Get Category: Subcategory object
+function getSubcategories(category) {
+
+  let subCategory = [];
+
+  if (subCategory.length == 0) {
+    const subJSON = jsonData[category];
+    for (let sub in subJSON) {
+      subCategory.push(sub);
+    }
+  }
+
+
+
+  // Object.keys(data).forEach(function(key,index) {
+  //   for (let sub in data[key]) {
+  //     let entry = {
+  //       category: key,
+  //       subCategory: sub
+  //     };
+  //     categoryArray.push(entry);
+  //   }
+  // });
+  return subCategory;
+}

@@ -27,11 +27,23 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+/* iframe styles */
+
+
+
+#subCategoryForm {
+  display: none;
+}
+
 .inputBtn {
   margin-bottom: 5px;
 
 }
 
+.custom-select{
+  width: 100%;
+  text-align: center;
+}
 
 .dropdown {
   margin-bottom: 15px;

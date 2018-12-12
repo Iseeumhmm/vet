@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/styles.css">
+
+<form id="outerCategoryForm" action="/category-select" method="POST">
+
+  <select name="category" id="categoryForm" class="custom-select" multiple>
+    <% data.categories.forEach(function(category){ %>
+    <option value="<%= category %>">
+      <%= category %>
+    </option>
+    <% }); %>
+  </select>
+
+</form>
+
+<script src="/jquery/jquery.js"></script>
+<script src="script.js" charset="utf-8"></script>

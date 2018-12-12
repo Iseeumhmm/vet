@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    $('#option2').change(function() {
+  $('#option2').change(function() {
     $("#weightInput").next("label").text("lbs");
     $("#postId").val("lbs");
     const lbs = $('#weightInput').val();
@@ -21,5 +21,8 @@ $(document).ready(function() {
     }
     $('#weightInput').val(weight.toFixed(2));
     $('form#weight').submit();
+  });
+  $('#categoryForm').on('change', function() {
+    $('#outerCategoryForm').submit();
   });
 });
