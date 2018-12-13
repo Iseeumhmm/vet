@@ -24,7 +24,7 @@ $(document).ready(function() {
   });
   $('#categoryForm').on('change', function() {
 
-    $('#outerCategoryForm').submit();
+    $('#categoryForm').submit();
   });
 
 });
