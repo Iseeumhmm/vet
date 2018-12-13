@@ -29,6 +29,50 @@
       }
     },
     "Cephalosporins": {
+      "Cefadroxil": {
+        "Dog": {
+          "Method": "PO",
+          "Frequency": "BID",
+          "minAmount": 22 ,
+          "maxAmount": 22
+        },
+        "Cat": {
+          "Method": "PO",
+          "Frequency": "SID",
+          "minAmount": 22 ,
+          "maxAmount": 22
+        }
+      },
+      "Cefovecin Sodium": {
+        "Dog": {
+          "Method": "SC",
+          "Frequency": "One time",
+          "minAmount": 8 ,
+          "maxAmount": 8
+        },
+        "Cat": {
+          "Method": "SC",
+          "Frequency": "One time",
+          "minAmount": 8 ,
+          "maxAmount": 8
+        }
+      },
+      "Cefpodoxime Proxetil": {
+        "Dog": {
+          "Method": "PO",
+          "Frequency": "SID",
+          "minAmount": 5 ,
+          "maxAmount": 10
+        }
+      },
+      "Ceftiofur Sodium": {
+        "Dog": {
+          "Method": "SC",
+          "Frequency": "SID",
+          "minAmount": 2.2 ,
+          "maxAmount": 2.2
+        }
+      },
       "Cephalexin": {
         "Dog": {
           "Method": "PO",
@@ -58,14 +102,60 @@
           "Method": "PO",
           "minAmount": 13.75,
           "maxAmount": 13.75,
-          "Frequency": "SID"
+          "Frequency": "BID"
         },
         "Cat": {
           "Method": "PO",
           "minAmount": "62.5mg(tab)",
           "maxAmount": "62.5mg(tab)",
           "tablet": true,
+          "Frequency": "BID"
+        }
+      },
+      "Ampicillin": {
+        "Dog": {
+          "Method": "SC IM",
+          "Frequency": "BID",
+          "minAmount": 6.6 ,
+          "maxAmount": 6.6
+        },
+        "Cat": {
+          "Method": "SC IM",
+          "Frequency": "BID",
+          "minAmount": 6.6 ,
+          "maxAmount": 6.6
+        }
+      }
+    },
+    "Lincosamides": {
+      "Clindamycin": {
+        "Dog": {
+          "Method": "PO",
+          "minAmount": 5.5,
+          "maxAmount": 33,
+          "Frequency": "BID"
+        },
+        "Cat": {
+          "Method": "PO",
+          "minAmount": 11,
+          "maxAmount": 33,
           "Frequency": "SID"
+        }
+      },
+      "Lincomycin HCI": {
+        "Dog": {
+          "Method": "PO",
+          "Frequency": "TID",
+          "minAmount": 15.4,
+          "maxAmount": 15.4,
+          "notes" : "OR 22mg/kg PO every 12 hours"
+        },
+        "Cat": {
+          "Method": "PO",
+          "Frequency": "TID",
+          "minAmount": 15.4,
+          "maxAmount": 15.4,
+          "notes" : "OR 22mg/kg PO every 12 hours"
         }
       }
     }
