@@ -1,3 +1,23 @@
+@media (max-width: 500px){
+  h1.home {
+    font-size: 5rem;
+  }
+  .custom-select {
+    margin: 10px 0px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 500px){
+  .custom-select {
+    font-size: 1rem;
+  }
+}
+
+.homeValign {
+  vertical-align: middle;
+}
+
 .main {
   text-align: center;
 }
@@ -7,6 +27,7 @@
 .animals {
   vertical-align: bottom;
   margin: 15px;
+  background: transparent;
 }
 
 .wInput {
@@ -42,7 +63,10 @@ input::-webkit-inner-spin-button {
 
 .custom-select{
   width: 100%;
+  /* font-size: 1rem; */
   text-align: center;
+  border: none;
+  background: transparent;
 }
 
 .dropdown {

@@ -1,14 +1,12 @@
 <link rel="stylesheet" href="/css/styles.css">
 
-<form id="outerCategoryForm" action="<%= passURL %>" method="POST" target="<%= target %>" >
+<form id="categoryForm" action="<%= passURL %>" method="POST" target="<%= target %>" >
 
-  <select name="category" id="categoryForm" class="custom-select" multiple>
+
     <% data.categories.forEach(function(category){ %>
-    <option value="<%= category %>">
-      <%= category %>
-    </option>
+    <input type="submit" class="custom-select" name="category" value="<%= category %>"></input>
     <% }); %>
-  </select>
+
 </form>
 
 <script src="/jquery/jquery.js"></script>

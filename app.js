@@ -182,17 +182,5 @@ function getSubcategories(category) {
       subCategory.push(sub);
     }
   }
-
-
-
-  // Object.keys(data).forEach(function(key,index) {
-  //   for (let sub in data[key]) {
-  //     let entry = {
-  //       category: key,
-  //       subCategory: sub
-  //     };
-  //     categoryArray.push(entry);
-  //   }
-  // });
   return subCategory;
 }

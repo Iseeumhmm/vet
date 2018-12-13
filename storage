@@ -1,16 +1,8 @@
-<select id="categoryForm" class="custom-select" multiple>
-  <option selected>Theraputic Class</option>
+<select name="category" id="categoryForm" class="custom-select" multiple>
   <% data.categories.forEach(function(category){ %>
   <option value="<%= category %>">
     <%= category %>
   </option>
   <% }); %>
 </select>
-
-
-<select id="subCategoryForm" class="custom-select" multiple>
-  <option selected>Drug Class</option>
-  <% data.subCategory.forEach(function(category){ %>
-  <option value="<%= category %>">
-    <% }); %>
-</select>
+</form>
