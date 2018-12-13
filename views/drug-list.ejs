@@ -2,10 +2,18 @@
 <form action="/" method="post">
   <button type="submit" name="name" value="homePage" class="top-left fas fa-<%= animal %> fa-5x"></button>
 </form>
+<div>
+
+</div>
 <p class="weightText">
-  <%= weight %> <%= units %>
-  </p>
-<h1><%= category %> (Dosages in mg/kg)</h1>
+  <%= weight %>
+  <%= units %>
+</p>
+<h1>
+  <%= category %> (Dosages in mg/kg)</h1>
+<div>
+
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -20,18 +28,32 @@
   <tbody>
     <% drugs.forEach(function(drug){ %>
     <tr>
-      <th scope="row"><%= drug.drugName %></th>
-      <td><%= drug.drugDetails.Method %></td>
-      <td><%= drug.drugDetails.Frequency %></td>
+      <th scope="row">
+        <%= drug.drugName %>
+      </th>
+      <td>
+        <%= drug.drugDetails.Method %>
+      </td>
+      <td>
+        <%= drug.drugDetails.Frequency %>
+      </td>
       <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount  === "------") { %>
-        <td><%= (drug.drugDetails.minAmount) %></td>
+      <td>
+        <%= (drug.drugDetails.minAmount) %>
+      </td>
       <% } else { %>
-      <td><%= (drug.drugDetails.minAmount * (weight * converter)).toFixed(2) %></td>
+      <td>
+        <%= (drug.drugDetails.minAmount * (weight * converter)).toFixed(2) %>
+      </td>
       <% } %>
       <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount === "------") { %>
-        <td><%= (drug.drugDetails.maxAmount) %></td>
+      <td>
+        <%= (drug.drugDetails.maxAmount) %>
+      </td>
       <% } else { %>
-      <td><%= (drug.drugDetails.maxAmount * (weight * converter)).toFixed(2) %></td>
+      <td>
+        <%= (drug.drugDetails.maxAmount * (weight * converter)).toFixed(2) %>
+      </td>
       <% } %>
     </tr>
     <% }); %>
