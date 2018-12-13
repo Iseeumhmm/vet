@@ -61,12 +61,13 @@ input::-webkit-inner-spin-button {
 /* Drug List Page */
 
  .top-left {
+   display: block;
    float: left;
-   font-size: 1rem;
+
  }
 
  .weightText{
    position: absolute;
    font-weight: 800;
-   margin: 29px 55px 0px;
+   margin: 62px 80px 0px;
  }

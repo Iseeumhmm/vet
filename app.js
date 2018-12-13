@@ -67,27 +67,34 @@ app.post("/category", function(req, res) {
   passData.units = req.body.units;
 });
 
+// Category-Select routes
+
 app.get("/category-select", function(req, res){
   if (!subCategoryPage) {
     passData.categories = getCategories(jsonData);
   }
   res.render("category-select", {
-    data: passData
+    data: passData, passURL: "/category-select", target: ""
   });
 });
 
 app.post("/category-select", function(req, res){
   const category = req.body.category;
-  console.log(category);
   passData.categories = getSubcategories(category);
+  firstCategory = category;
   subCategoryPage = true;
   res.render("category-select", {
-    data: passData
+    data: passData, passURL: "/category-redirect", target: "_top"
   });
+
+  //
 });
 
-// Dynamic Route
+app.post("/category-redirect", function(req, res){
+  res.redirect("/" + firstCategory + "/" + req.body.category);
+});
 
+// Dynamic Route (Drug-List)
 
 // Gather passed Sub Category data and pass drugs to drug-list
 app.get("/:first/:second", function(req, res) {
@@ -141,6 +148,7 @@ function clearData() {
   passData.Animal = "";
   passData.firstCategory = ""
   passData.weight = null;
+  subCategoryPage = false;
 }
 
 function pushData(_data, _JSONdetails, dataArray) {

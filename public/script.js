@@ -23,6 +23,8 @@ $(document).ready(function() {
     $('form#weight').submit();
   });
   $('#categoryForm').on('change', function() {
+
     $('#outerCategoryForm').submit();
   });
+
 });
