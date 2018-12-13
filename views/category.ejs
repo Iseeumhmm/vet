@@ -27,47 +27,13 @@
 
 <!-- Category List -->
 <div>
-  <iframe id="inlineFrame"
-      frameBorder = "0"
-      title="Select-Category"
-      width="350"
-      height="500"
-      src="/category-select">
-      <select id="categoryForm" class="custom-select" multiple>
-        <option selected>Theraputic Class</option>
-        <% data.categories.forEach(function(category){ %>
-        <option value="<%= category %>">
-          <%= category %>
-        </option>
-        <% }); %>
-      </select>
-
-
-      <select id="subCategoryForm" class="custom-select" multiple>
-        <option selected>Drug Class</option>
-        <% data.subCategory.forEach(function(category){ %>
-        <option value="<%= category %>">
-          <% }); %>
-      </select>
+  <iframe id="inlineFrame" frameBorder="0" title="Select-Category" width="350" height="500" src="/category-select">
 
   </iframe>
 
 </div>
 
 
-
-<!-- Subcategory dropdown -->
-
-<div class="list-group">
-  <% data.subCategory.forEach(function(category){ %>
-  <a class="list list-group-item list-group-flush list-group-item-action" href="/<%= data.categoryTitle %>/<%= category %>">
-    <%= category %></a>
-  <% }); %>
-
-</div>
-
-<!-- End of HTML -->
-</div>
 
 <!-- Local Scripts -->
 
