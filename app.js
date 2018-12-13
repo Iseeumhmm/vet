@@ -65,6 +65,7 @@ app.get("/category", function(req, res) {
 app.post("/category", function(req, res) {
   passData.weight = req.body.weight;
   passData.units = req.body.units;
+  res.end;
 });
 
 // Category-Select routes
