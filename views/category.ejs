@@ -33,14 +33,17 @@
       width="350"
       height="500"
       src="/category-select">
-      <select id="categoryForm" class="custom-select" multiple>
-        <option selected>Theraputic Class</option>
-        <% data.categories.forEach(function(category){ %>
-        <option value="<%= category %>">
-          <%= category %>
-        </option>
-        <% }); %>
-      </select>
+      <form >
+        <select id="categoryForm" class="custom-select" multiple>
+          <option selected>Theraputic Class</option>
+          <% data.categories.forEach(function(category){ %>
+          <option value="<%= category %>">
+            <%= category %>
+          </option>
+          <% }); %>
+        </select>
+      </form>
+
 
 
       <select id="subCategoryForm" class="custom-select" multiple>
