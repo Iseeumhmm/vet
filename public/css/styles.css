@@ -87,7 +87,7 @@ input::-webkit-inner-spin-button {
 
  .top-left {
    margin: 0;
-   display: block;
+   display: inline-block;
    float: left;
 
  }
