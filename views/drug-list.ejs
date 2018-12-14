@@ -1,65 +1,68 @@
 <%- include("partials/header") -%>
-<form action="/" method="post">
-  <button type="submit" name="name" value="homePage" class="top-left fas fa-<%= animal %> fa-5x"></button>
-</form>
-<div>
 
+<div class="drug-container">
+
+  <form action="/" method="post">
+    <button type="submit" name="name" value="homePage" class="animal-pg3 top-left fas fa-<%= animal %> fa-5x"></button>
+  </form>
+
+
+  <p class="weightText">
+    <%= weight %>
+    <%= units %>
+  </p>
+  <h1 class="drug-title">
+    <%= category %> (Dosages in mg/kg)</h1>
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Drug</th>
+        <th scope="col">Method</th>
+        <th scope="col">Frequency</th>
+        <th scope="col">Start mg</th>
+        <th scope="col">Max mg</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% drugs.forEach(function(drug){ %>
+      <tr>
+        <th scope="row">
+          <%= drug.drugName %>
+        </th>
+        <td>
+          <%= drug.drugDetails.Method %>
+        </td>
+        <td>
+          <%= drug.drugDetails.Frequency %>
+        </td>
+        <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount  === "------") { %>
+        <td>
+          <%= (drug.drugDetails.minAmount) %>
+        </td>
+        <% } else { %>
+        <td>
+          <%= (drug.drugDetails.minAmount * (weight * converter)).toFixed(2) %>
+        </td>
+        <% } %>
+        <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount === "------") { %>
+        <td>
+          <%= (drug.drugDetails.maxAmount) %>
+        </td>
+        <% } else { %>
+        <td>
+          <%= (drug.drugDetails.maxAmount * (weight * converter)).toFixed(2) %>
+        </td>
+        <% } %>
+      </tr>
+      <% }); %>
+
+    </tbody>
+  </table>
 </div>
-<p class="weightText">
-  <%= weight %>
-  <%= units %>
-</p>
-<h1>
-  <%= category %> (Dosages in mg/kg)</h1>
-<div>
 
-</div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Drug</th>
-      <th scope="col">Method</th>
-      <th scope="col">Frequency</th>
-      <th scope="col">Start mg</th>
-      <th scope="col">Max mg</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% drugs.forEach(function(drug){ %>
-    <tr>
-      <th scope="row">
-        <%= drug.drugName %>
-      </th>
-      <td>
-        <%= drug.drugDetails.Method %>
-      </td>
-      <td>
-        <%= drug.drugDetails.Frequency %>
-      </td>
-      <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount  === "------") { %>
-      <td>
-        <%= (drug.drugDetails.minAmount) %>
-      </td>
-      <% } else { %>
-      <td>
-        <%= (drug.drugDetails.minAmount * (weight * converter)).toFixed(2) %>
-      </td>
-      <% } %>
-      <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount === "------") { %>
-      <td>
-        <%= (drug.drugDetails.maxAmount) %>
-      </td>
-      <% } else { %>
-      <td>
-        <%= (drug.drugDetails.maxAmount * (weight * converter)).toFixed(2) %>
-      </td>
-      <% } %>
-    </tr>
-    <% }); %>
-
-  </tbody>
-</table>
 
 
 <%- include("partials/footer") -%>

@@ -1,34 +1,123 @@
-@media (max-width: 500px){
-  h1.home {
-    font-size: 5rem;
-  }
-  .custom-select {
-    margin: 10px 0px;
-    font-size: 1.5rem;
-  }
+
+h1 {
+  font-size: 2.5rem;
 }
 
-@media (min-width: 500px){
-  .custom-select {
-    font-size: 1rem;
-  }
+/* Header */
+
+.header-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: #87a8d0;
+  background-color: #deecfc;
 }
 
-.homeValign {
+h1.home {
+  color: #364e68;
+  font-weight: 600;
+  padding-top: 25px;
+}
+
+
+/* Home Page */
+
+.home-container {
+  display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.container-for-animals {
+  display: table-cell;
   vertical-align: middle;
 }
 
-.main {
+.animal-container {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+/* Animals */
+
+.animals {
+  background: transparent;
+  border: none;
+  color: #87a8d0;
+  margin: 50px;
+}
+
+.animals-pg2 {
+  margin: 0;
+  padding:0;
+}
+
+.animal-pg3 {
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: #87a8d0;
+}
+
+/* Footer */
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: #87a8d0;
+  background-color: #deecfc;
+}
+
+h1.home-footer {
+  color: #364e68;
+  font-size: 2rem;
+  padding-top: 15px;
+}
+
+
+p.home-footer {
+  position: relative;
+  bottom: 25px;
+  font-size: 1.66rem;
+  font-weight: 400;
+}
+
+.i {
+  font-size: 2.75rem;
+  font-weight: 400;
+  color: #87a8d0;
 }
 
 /* Category Page */
 
-.animals {
-  vertical-align: bottom;
-  margin: 15px;
+.form-container {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.custom-select{
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  border: none;
   background: transparent;
 }
+
+p.weightText {
+  position: relative;
+  left: 80px;
+  bottom: 20px;
+}
+/* Button Styling */
 
 .wInput {
   position: relative;
@@ -48,52 +137,71 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-/* iframe styles */
-
-
-
-#subCategoryForm {
-  display: none;
-}
-
-.inputBtn {
-  margin: 15px;
-  font-size: 3rem;
-
-}
-
-.custom-select{
-  width: 100%;
-  /* font-size: 1rem; */
+.drug-title {
   text-align: center;
-  border: none;
-  background: transparent;
 }
 
-.dropdown {
-  margin-bottom: 15px;
+.drug-container {
+  margin-top: 200px;
 }
 
-.list-group{
-      display:inline-block;
- }
+@media (device-width: 375px) {
+  h1.home {
+    font-size: 4rem;
+    padding-top: 55px;
+  }
 
- .fas {
-   background: none;
-   border: 0px;
- }
+  .header-container {
+    height: 200px;
+  }
 
-/* Drug List Page */
+  /* Animals */
 
- .top-left {
-   margin: 0;
-   display: inline-block;
-   float: left;
+  .animals {
+    margin: 120px;
 
- }
+  }
 
- .weightText{
-   position: absolute;
-   font-weight: 800;
-   margin: 62px 80px 0px;
- }
+
+  h1.home-footer {
+    font-size: 4rem;
+    padding-top: 25px;
+  }
+  .i {
+    font-size: 5.55rem;
+    font-weight: 400;
+  }
+
+  p.home-footer {
+    bottom: 55px;
+    font-size: 3.22rem;
+  }
+
+  .footer-container {
+    height: 200px;
+  }
+
+  /* Category Page */
+
+  .form-container {
+    margin-top: 150px;
+  }
+
+  /* Large Input Button */
+  .inputBtn {
+    margin: 15px;
+    font-size: 3rem;
+  }
+
+  .custom-select {
+    font-size: 3rem;
+  }
+
+  /* drug page */
+
+  p.weightText {
+    left: 200px;
+    bottom: 25px;
+  }
+
+}

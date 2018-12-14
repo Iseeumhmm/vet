@@ -1,14 +1,16 @@
 <%- include("partials/header") -%>
 
-<div class="homeValign">
-  <h1 class="home">Quick Dosage Reference</h1>
-
-  <form action="/" method="post">
-
-    <button class="btn animals" name="Animal" value="Dog"><i class="fas fa-dog fa-10x"></i></button>
-    <button class="btn animals" name="Animal" value="Cat"><i class="fas fa-cat fa-9x"></i></button>
-
-  </form>
+<div class="home-container">
+  <div class="container-for-animals">
+    <form action="/" method="post">
+      <div class="animal-container">
+        <button class="btn animals" name="Animal" value="Dog"><i class="fas fa-dog fa-10x"></i></button>
+      </div>
+      <div class="animal-container">
+        <button class="btn animals" name="Animal" value="Cat"><i class="fas fa-cat fa-9x"></i></button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <%- include("partials/footer") -%>

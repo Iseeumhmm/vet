@@ -1,0 +1,99 @@
+@media (max-width: 500px){
+  h1.home {
+    font-size: 5rem;
+  }
+  .custom-select {
+    margin: 10px 0px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 500px){
+  .custom-select {
+    font-size: 1rem;
+  }
+}
+
+.homeValign {
+  vertical-align: middle;
+}
+
+.main {
+  text-align: center;
+}
+
+/* Category Page */
+
+.animals {
+  vertical-align: bottom;
+  margin: 15px;
+  background: transparent;
+}
+
+.wInput {
+  position: relative;
+  left: 11px;
+}
+
+input.inputBtn {
+  width: 8rem;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* iframe styles */
+
+
+
+#subCategoryForm {
+  display: none;
+}
+
+.inputBtn {
+  margin: 15px;
+  font-size: 3rem;
+
+}
+
+.custom-select{
+  width: 100%;
+  /* font-size: 1rem; */
+  text-align: center;
+  border: none;
+  background: transparent;
+}
+
+.dropdown {
+  margin-bottom: 15px;
+}
+
+.list-group{
+      display:inline-block;
+ }
+
+ .fas {
+   background: none;
+   border: 0px;
+ }
+
+/* Drug List Page */
+
+ .top-left {
+   margin: 0;
+   display: inline-block;
+   float: left;
+
+ }
+
+ .weightText{
+   position: absolute;
+   font-weight: 800;
+   margin: 62px 80px 0px;
+ }

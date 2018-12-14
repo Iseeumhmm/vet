@@ -1,37 +1,42 @@
 <%- include("partials/header") -%>
 
 <!-- Page Icon showing witch animal is being searched -->
-<form action="/" method="post">
-  <button type="submit" name="name" value="homePage" class="fas fa-<%= data.Animal %> fa-10x"></button>
-</form>
+<div class="home-container">
+  <div class="form-container">
+    <form action="/" method="post">
+      <button type="submit" name="name" value="homePage" class="animals animal-pg2 fas fa-<%= data.Animal %> fa-10x"></button>
+    </form>
 
-<div class="wInput">
-  <form id="weight" action="/category" method="post">
-    <input class="inputBtn" id="weightInput" type="number" name="weight" value="<%= data.weight %>" onchange="this.form.submit()">
-    <label for="weightInput">
-      <%= data.units %></label>
-    <input type="hidden" id="postId" name="units" value="kgs">
-  </form>
+    <div class="wInput">
+      <form id="weight" action="/category" method="post">
+        <input class="inputBtn" id="weightInput" type="number" name="weight" value="<%= data.weight %>" onchange="this.form.submit()">
+        <label for="weightInput">
+          <%= data.units %></label>
+        <input type="hidden" id="postId" name="units" value="kgs">
+      </form>
+    </div>
+
+    <!-- Lbs Kgs toggle  -->
+
+    <div class="inputBtn btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-secondary active">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked> kgs
+      </label>
+      <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option2" autocomplete="off"> lbs
+      </label>
+    </div>
+
+    <!-- Category List -->
+    <div>
+      <iframe id="inlineFrame" frameBorder="0" title="Select-Category" width="100%" height="500" src="/category-select">
+
+      </iframe>
+
+    </div>
+  </div>
 </div>
 
-<!-- Lbs Kgs toggle  -->
-
-<div class="inputBtn btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> kgs
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off"> lbs
-  </label>
-</div>
-
-<!-- Category List -->
-<div>
-  <iframe id="inlineFrame" frameBorder="0" title="Select-Category" width="350" height="500" src="/category-select">
-
-  </iframe>
-
-</div>
 
 
 
