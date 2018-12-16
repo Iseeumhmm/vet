@@ -1,30 +1,38 @@
+let parent = window.document;
+$(parent).on( "pagecontainershow", function( event, ui ) {
+  alert("page showing");
+} );
 
 $(document).ready(function() {
-  $('#option2').change(function() {
+  $('#lbs').change(function() {
     $("#weightInput").next("label").text("lbs");
-    $("#postId").val("lbs");
+    $("#postUnits").val("lbs");
     const lbs = $('#weightInput').val();
     let weight = lbs;
     if (lbs > 1) {
       weight *= 2.2;
     }
     $('#weightInput').val(weight.toFixed(2));
-    $('form#weight').submit();
   });
-  $('#option1').change(function() {
+  $('#kgs').change(function() {
     $("#weightInput").next("label").text("kgs");
-    $("#postId").val("kgs");
+    $("#postUnits").val("kgs");
     const lbs = $('#weightInput').val();
     let weight = lbs;
     if (lbs > 1) {
       weight /= 2.2;
     }
     $('#weightInput').val(weight.toFixed(2));
-    $('form#weight').submit();
   });
-  $('#categoryForm').on('change', function() {
-
-    $('#categoryForm').submit();
-  });
-
 });
+
+
+function doSubmit() {
+  let parent = window.parent.document;
+  const weight = parent.getElementById("weightInput").value;
+  const units = parent.getElementById("postUnits").value;
+  window.document.getElementById("subWeight").value = weight;
+  window.document.getElementById("subPostUnits").value = units;
+  // parent.getElementById("weight").reset();
+  return true;
+}

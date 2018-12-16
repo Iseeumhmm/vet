@@ -62,11 +62,12 @@ app.get("/category", function(req, res) {
   });
 });
 // Record the weight sent from category page
-app.post("/category", function(req, res) {
-  passData.weight = req.body.weight;
-  passData.units = req.body.units;
-  res.redirect('back');
-});
+// app.post("/category", function(req, res) {
+//   console.log("form submitted");
+//   passData.weight = req.body.weight;
+//   passData.units = req.body.units;
+//   res.redirect('back');
+// });
 
 // Category-Select routes
 
@@ -81,6 +82,7 @@ app.get("/category-select", function(req, res){
 
 app.post("/category-select", function(req, res){
   const category = req.body.category;
+  setWeightAndUnits(req.body.weight, req.body.units);
   passData.categories = getSubcategories(category);
   firstCategory = category;
   subCategoryPage = true;
@@ -92,6 +94,7 @@ app.post("/category-select", function(req, res){
 });
 
 app.post("/category-redirect", function(req, res){
+  setWeightAndUnits(req.body.weight, req.body.units);
   res.redirect("/" + firstCategory + "/" + req.body.category);
 });
 
@@ -184,4 +187,12 @@ function getSubcategories(category) {
     }
   }
   return subCategory;
+}
+
+// Set passedWeight and passedUnits
+
+function setWeightAndUnits (weight, units){
+  // Set weight and units in passData
+  passData.weight = weight;
+  passData.units = units;
 }
