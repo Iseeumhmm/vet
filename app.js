@@ -110,13 +110,3 @@ app.get("/:first/:second", function(req, res) {
     standard.createDrugListObject(passedSubCategory)
   );
 });
-
-// Functions
-function pushData(_data, _JSONdetails, classObject) {
-  let detailsForPassing = {
-    drugName: _data,
-    drugDetails: _JSONdetails
-  };
-  // Create Array of {drugName: drugsDetails: } for sending to drug-list
-  classObject.push(detailsForPassing);
-}

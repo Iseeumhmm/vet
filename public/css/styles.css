@@ -148,7 +148,7 @@ input::-webkit-inner-spin-button {
   margin-top: 200px;
 }
 
-@media (device-width: 375px) {
+@media (device-width: 500px) {
   h1.home {
     font-size: 4rem;
     padding-top: 55px;
