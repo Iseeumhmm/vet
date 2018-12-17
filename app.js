@@ -1,20 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const jsonData = require(__dirname + "/data.json");
+const _jsonData = require(__dirname + "/data.json");
 const _ = require("lodash");
-// Variables
-let categories = [];
-let passData = {
-  Animal: "",
-  weight: null,
-  units: "kgs",
-  categories: [],
-  subCategory: [],
-  firstCategory: ""
-};
-let subCategoryPage = false;
+const Collection = require(__dirname + "/collections.js");
 
+// Instatiate collections of drug data
+let standard = new Collection(_jsonData);
 
 // Setup Server
 const app = express();
@@ -34,13 +26,11 @@ app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
 
-// Get Routing Functions
-
 // Home Route
-
 app.get("/", function(req, res) {
-  clearData();
-  passData.units = "kgs";
+
+  standard.clearData()
+  standard.units = "kgs";
   res.render("home");
 });
 
@@ -49,73 +39,61 @@ app.post("/", function(req, res) {
   if (req.body.name === "homePage") {
     res.redirect("/");
   } else {
-    passData.Animal = _.lowerCase(req.body.Animal);
+    standard.Animal = _.lowerCase(req.body.Animal);
     res.redirect("category");
   }
 });
 
 // Category Routes
-
 app.get("/category", function(req, res) {
   res.render("category", {
-    data: passData
+    data: standard.dataPassObject()
   });
 });
-// Record the weight sent from category page
-// app.post("/category", function(req, res) {
-//   console.log("form submitted");
-//   passData.weight = req.body.weight;
-//   passData.units = req.body.units;
-//   res.redirect('back');
-// });
 
 // Category-Select routes
-
 app.get("/category-select", function(req, res){
-  if (!subCategoryPage) {
-    passData.categories = getCategories(jsonData);
+  if (!standard.subCategoryPage) {
+    standard.getCategories(_jsonData);
   }
   res.render("category-select", {
-    data: passData, passURL: "/category-select", target: ""
+    data: standard.dataPassObject(), passURL: "/category-select", target: ""
   });
 });
 
 app.post("/category-select", function(req, res){
   const category = req.body.category;
-  setWeightAndUnits(req.body.weight, req.body.units);
-  passData.categories = getSubcategories(category);
-  firstCategory = category;
-  subCategoryPage = true;
+  standard.setWeightAndUnits(req.body.weight, req.body.units);
+  standard.getSubcategories(category);
+  standard.firstCategory = category;
+  standard.subCategoryPage = true;
   res.render("category-select", {
-    data: passData, passURL: "/category-redirect", target: "_top"
+    data: standard.dataPassObject(), passURL: "/category-redirect", target: "_top"
   });
-
-  //
 });
 
+// Category-redirect
 app.post("/category-redirect", function(req, res){
-  setWeightAndUnits(req.body.weight, req.body.units);
-  res.redirect("/" + firstCategory + "/" + req.body.category);
+  standard.setWeightAndUnits(req.body.weight, req.body.units);
+  res.redirect("/" + standard.firstCategory + "/" + req.body.category);
 });
 
 // Dynamic Route (Drug-List)
-
-// Gather passed Sub Category data and pass drugs to drug-list
 app.get("/:first/:second", function(req, res) {
   // Variables
   const passedSubCategory = req.params.second;
   const passedCategory = req.params.first;
-  const dataFromJSON = jsonData[passedCategory][passedSubCategory];
+  const dataFromJSON = _jsonData[passedCategory][passedSubCategory];
   let categoryData = [];
-  let capitalAnimal = _.startCase(passData.Animal);
+  let capitalAnimal = _.startCase(standard.Animal);
   // Iterate through all drugs in Subcategory
   for (let data in dataFromJSON) {
     // Get each of the drug details in this subcategory
-    var detailsFromJSON = jsonData[passedCategory][passedSubCategory][data][capitalAnimal];
+    var detailsFromJSON = _jsonData[passedCategory][passedSubCategory][data][capitalAnimal];
     // Check to see if the drug has labeled dosage for current animal
     if (detailsFromJSON) {
       // Create object and push to categoryArray
-      pushData(data, detailsFromJSON, categoryData);
+      pushData(data, detailsFromJSON, standard.drugData);
     } else {
       // Create stand in data for drugs that don't have doseage for current animal
       const detailsFromJSON = {
@@ -125,74 +103,20 @@ app.get("/:first/:second", function(req, res) {
         maxAmount: "------",
       };
       // Create object and push to categoryArray
-      pushData(data, detailsFromJSON, categoryData);
+      standard.pushData(data, detailsFromJSON);
     }
   }
-
-  let converter = 1;
-  if (passData.units === "lbs") {
-    converter = 0.454545;
-  }
-
-  res.render("drug-list", {
-    category: passedSubCategory,
-    drugs: categoryData,
-    animal: passData.Animal,
-    weight: passData.weight,
-    units: passData.units,
-    converter: converter
-  });
-
+  res.render("drug-list",
+    standard.createDrugListObject(passedSubCategory)
+  );
 });
 
 // Functions
-
-function clearData() {
-  passData.subCategory = [];
-  passData.Animal = "";
-  passData.firstCategory = ""
-  passData.weight = null;
-  subCategoryPage = false;
-}
-
-function pushData(_data, _JSONdetails, dataArray) {
+function pushData(_data, _JSONdetails, classObject) {
   let detailsForPassing = {
     drugName: _data,
     drugDetails: _JSONdetails
   };
   // Create Array of {drugName: drugsDetails: } for sending to drug-list
-  dataArray.push(detailsForPassing);
-}
-
-
-// Create Category Array from JSON
-function getCategories(json) {
-  let categories = [];
-  for (let category in json) {
-    categories.push(category);
-  }
-  return categories;
-}
-
-
-// Get Category: Subcategory object
-function getSubcategories(category) {
-
-  let subCategory = [];
-
-  if (subCategory.length == 0) {
-    const subJSON = jsonData[category];
-    for (let sub in subJSON) {
-      subCategory.push(sub);
-    }
-  }
-  return subCategory;
-}
-
-// Set passedWeight and passedUnits
-
-function setWeightAndUnits (weight, units){
-  // Set weight and units in passData
-  passData.weight = weight;
-  passData.units = units;
+  classObject.push(detailsForPassing);
 }
