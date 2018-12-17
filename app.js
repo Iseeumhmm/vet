@@ -93,7 +93,7 @@ app.get("/:first/:second", function(req, res) {
     // Check to see if the drug has labeled dosage for current animal
     if (detailsFromJSON) {
       // Create object and push to categoryArray
-      pushData(data, detailsFromJSON, standard.drugData);
+      standard.pushData(data, detailsFromJSON);
     } else {
       // Create stand in data for drugs that don't have doseage for current animal
       const detailsFromJSON = {
