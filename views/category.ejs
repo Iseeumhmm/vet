@@ -1,46 +1,63 @@
 <%- include("partials/header") -%>
 
 <!-- Page Icon showing witch animal is being searched -->
-<div id="top-wrapper">
-  <div class="home-container">
-    <div class="form-container">
-      <form action="/" method="post">
-        <button type="submit" name="name" value="homePage" class="animals animal-pg2 fas fa-<%= data.Animal %> fa-10x"></button>
-      </form>
 
-      <div class="wInput">
-        <form id="weight" action="/category" method="post">
-          <input class="inputBtn" id="weightInput" type="number" name="weight" value="<%= data.weight %>">
-          <label for="weightInput">
-            <%= data.units %></label>
-          <input type="hidden" id="postUnits" name="units" value="kgs">
 
-        </form>
-      </div>
+<div class="form-container">
+  <form action="/" method="post">
+    <button type="submit" name="name" value="homePage" class="animals animal-pg2 fas fa-<%= data.Animal %> fa-10x"></button>
+  </form>
 
-      <!-- Lbs Kgs toggle  -->
+  <div class="wInput">
+    <form id="weight" action="/category" method="post">
+      <input class="inputBtn" id="weightInput" type="number" name="weight" value="<%= data.weight %>">
+      <label for="weightInput">
+        <%= data.units %></label>
+      <input type="hidden" id="postUnits" name="units" value="kgs">
 
-      <div class="inputBtn btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">
-          <input type="radio" name="options" id="kgs" autocomplete="off" checked> kgs
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="lbs" autocomplete="off"> lbs
-        </label>
-      </div>
+    </form>
+  </div>
+
+  <!-- Lbs Kgs toggle  -->
+
+  <div class="inputBtn btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-secondary active">
+      <input type="radio" name="options" id="kgs" autocomplete="off" checked> kgs
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="lbs" autocomplete="off"> lbs
+    </label>
+  </div>
 
 </div>
 
-    <!-- Category List -->
-    <div>
-      <iframe id="inlineFrame" frameBorder="0" title="Select-Category" width="100%" height="500" src="/category-select" scrolling="yes">
+<nav>
+  <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div class="iframe-div">
+      <iframe id="inlineFrame" class="iframe-container" frameborder="0" title="Select-Category" src="/category-select">
 
       </iframe>
-
     </div>
-  </div>
-</div>
 
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A iaculis at erat pellentesque adipiscing commodo elit at imperdiet. Risus ultricies tristique nulla aliquet enim tortor. Nibh tellus molestie nunc non blandit massa enim nec dui. Non arcu risus quis varius. Congue nisi vitae suscipit tellus mauris a diam. Eget nunc lobortis mattis aliquam faucibus purus. Tellus at urna condimentum mattis pellentesque id nibh. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Non diam phasellus vestibulum lorem sed risus ultricies tristique. Integer eget aliquet nibh praesent tristique magna. Ut tortor pretium viverra suspendisse potenti nullam ac. Dictum fusce ut placerat orci nulla. In pellentesque massa placerat duis ultricies lacus.
+
+Tellus integer feugiat scelerisque varius morbi. Feugiat vivamus at augue eget arcu dictum. Id aliquet lectus proin nibh nisl condimentum id venenatis. Adipiscing enim eu turpis egestas pretium aenean pharetra. Congue eu consequat ac felis donec et odio pellentesque diam. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Quis commodo odio aenean sed adipiscing diam. Adipiscing vitae proin sagittis nisl rhoncus mattis. Cursus sit amet dictum sit amet justo donec enim. Ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum. Non arcu risus quis varius quam quisque id diam. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Erat nam at lectus urna duis convallis convallis tellus id. Massa id neque aliquam vestibulum morbi blandit.
+
+Amet porttitor eget dolor morbi. Metus aliquam eleifend mi in nulla posuere sollicitudin. Sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum. Amet volutpat consequat mauris nunc congue. Arcu ac tortor dignissim convallis aenean et tortor at risus. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu. Mauris ultrices eros in cursus turpis. Augue ut lectus arcu bibendum at varius vel. Dolor magna eget est lorem ipsum dolor. Eu feugiat pretium nibh ipsum consequat nisl vel pretium. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam. Suspendisse faucibus interdum posuere lorem ipsum dolor. Adipiscing at in tellus integer feugiat scelerisque varius morbi enim. Eget egestas purus viverra accumsan in nisl nisi scelerisque. Eu lobortis elementum nibh tellus molestie nunc non blandit massa. Venenatis lectus magna fringilla urna. Lobortis mattis aliquam faucibus purus in massa tempor.
+
+Gravida rutrum quisque non tellus orci ac auctor. Diam quis enim lobortis scelerisque fermentum dui. Arcu dui vivamus arcu felis bibendum ut tristique. Placerat orci nulla pellentesque dignissim enim sit amet venenatis urna. Eget arcu dictum varius duis at consectetur lorem. Nam aliquam sem et tortor consequat id porta. Condimentum id venenatis a condimentum vitae sapien pellentesque. In hendrerit gravida rutrum quisque non tellus orci ac. Odio morbi quis commodo odio aenean sed adipiscing. Est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus.
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+</div>
 
 
 
@@ -54,7 +71,5 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-<div class="home-panel">
 
 <%- include("partials/footer") -%>

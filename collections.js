@@ -18,7 +18,6 @@ module.exports = class Collection {
         drugName: _data,
         drugDetails: _JSONdetails
       };
-      this.drugData = [];
       // Create Array of {drugName: drugsDetails: } for sending to drug-list
       this.drugData.push(detailsForPassing);
     }

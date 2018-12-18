@@ -1,5 +1,5 @@
 {
-  "Antibiotics": {
+  "Emergency_Antibiotics": {
     "Aminocyclitols": {
       "Amkacin": {
         "Dog": {
@@ -70,7 +70,7 @@
       }
     }
   },
-  "Central Nervous System Drugs": {
+  "Emergency_Central Nervous System Drugs": {
     "Anticonvulsants": {
       "Imepitoin": {
         "Dog": {
