@@ -2,11 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _jsonData = require(__dirname + "/data.json");
+const _emergencyJsonData = require(__dirname + "/emergency.json");
 const _ = require("lodash");
 const Collection = require(__dirname + "/collections.js");
 
 // Instatiate collections of drug data
 let standard = new Collection(_jsonData);
+let emergency = new Collection(_emergencyJsonData);
 
 // Setup Server
 const app = express();
@@ -28,9 +30,7 @@ app.listen(process.env.PORT || 3000, function() {
 
 // Home Route
 app.get("/", function(req, res) {
-
-  standard.clearData()
-  standard.units = "kgs";
+  clearData()
   res.render("home");
 });
 
@@ -39,7 +39,7 @@ app.post("/", function(req, res) {
   if (req.body.name === "homePage") {
     res.redirect("/");
   } else {
-    standard.Animal = _.lowerCase(req.body.Animal);
+    setAnimal(req.body.Animal);
     res.redirect("category");
   }
 });
@@ -47,7 +47,7 @@ app.post("/", function(req, res) {
 // Category Routes
 app.get("/category", function(req, res) {
   res.render("category", {
-    data: standard.dataPassObject()
+    data: standard.dataPassObject(),
   });
 });
 
@@ -56,44 +56,67 @@ app.get("/category-select", function(req, res){
   if (!standard.subCategoryPage) {
     standard.getCategories(_jsonData);
   }
-  res.render("category-select", {
-    data: standard.dataPassObject(), passURL: "/category-select", target: ""
-  });
+  res.render("category-select", renderPageData(standard, "category"));
+});
+
+app.get("/emergency-select", function(req, res){
+  if (!emergency.subCategoryPage) {
+    emergency.getCategories(_emergencyJsonData);
+  }
+  res.render("emergency-select", renderPageData(emergency, "emergency"));
 });
 
 app.post("/category-select", function(req, res){
-  const category = req.body.category;
-  standard.setWeightAndUnits(req.body.weight, req.body.units);
-  standard.getSubcategories(category);
-  standard.firstCategory = category;
-  standard.subCategoryPage = true;
+  selectPostDataParser(standard, req.body);
   res.render("category-select", {
     data: standard.dataPassObject(), passURL: "/category-redirect", target: "_top"
   });
 });
 
-// Category-redirect
+app.post("/emergency-select", function(req, res){
+  selectPostDataParser(emergency, req.body);
+  res.render("emergency-select", {
+    data: emergency.dataPassObject(), passURL: "/emergency-redirect", target: "_top"
+  });
+});
+
+// Redirects
 app.post("/category-redirect", function(req, res){
   standard.setWeightAndUnits(req.body.weight, req.body.units);
-  res.redirect("/" + standard.firstCategory + "/" + req.body.category);
+  res.redirect("/standard/" + standard.firstCategory + "/" + req.body.category);
+});
+
+app.post("/emergency-redirect", function(req, res){
+  emergency.setWeightAndUnits(req.body.weight, req.body.units);
+  res.redirect("/emergency/" + emergency.firstCategory + "/" + req.body.category);
 });
 
 // Dynamic Route (Drug-List)
-app.get("/:first/:second", function(req, res) {
+app.get("/:collection/:first/:second", function(req, res) {
+  let passedCollection = new Collection();
+  let _data = {};
+  if (req.params.collection === "standard") {
+    passedCollection = standard;
+    _data = _jsonData;
+  } else if (req.params.collection === "emergency") {
+    passedCollection = emergency;
+    _data = _emergencyJsonData;
+  }
+
   // Variables
   const passedSubCategory = req.params.second;
   const passedCategory = req.params.first;
-  const dataFromJSON = _jsonData[passedCategory][passedSubCategory];
+  const dataFromJSON = _data[passedCategory][passedSubCategory];
   let categoryData = [];
-  let capitalAnimal = _.startCase(standard.Animal);
+  let capitalAnimal = _.startCase(passedCollection.Animal);
   // Iterate through all drugs in Subcategory
   for (let data in dataFromJSON) {
     // Get each of the drug details in this subcategory
-    var detailsFromJSON = _jsonData[passedCategory][passedSubCategory][data][capitalAnimal];
+    var detailsFromJSON = _data[passedCategory][passedSubCategory][data][capitalAnimal];
     // Check to see if the drug has labeled dosage for current animal
     if (detailsFromJSON) {
       // Create object and push to categoryArray
-      standard.pushData(data, detailsFromJSON);
+      passedCollection.pushData(data, detailsFromJSON);
     } else {
       // Create stand in data for drugs that don't have doseage for current animal
       const detailsFromJSON = {
@@ -103,10 +126,44 @@ app.get("/:first/:second", function(req, res) {
         maxAmount: "------",
       };
       // Create object and push to categoryArray
-      standard.pushData(data, detailsFromJSON);
+      passedCollection.pushData(data, detailsFromJSON);
     }
   }
   res.render("drug-list",
-    standard.createDrugListObject(passedSubCategory)
+    passedCollection.createDrugListObject(passedSubCategory)
   );
 });
+
+
+
+
+
+
+// Functions
+
+function setAnimal(animal) {
+  standard.Animal = _.lowerCase(animal);
+  emergency.Animal = _.lowerCase(animal);
+}
+
+function clearData() {
+  standard.clearData();
+  emergency.clearData();
+}
+
+function renderPageData(collection, name){
+  let data = {
+    data: collection.dataPassObject(),
+    passURL: "/" + name + "-select",
+    target: ""
+  }
+  return data;
+}
+
+function selectPostDataParser(collection, reqBody) {
+  const category = reqBody.category;
+  collection.setWeightAndUnits(reqBody.weight, reqBody.units);
+  collection.getSubcategories(category);
+  collection.firstCategory = category;
+  collection.subCategoryPage = true;
+}

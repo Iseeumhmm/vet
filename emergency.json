@@ -1,7 +1,7 @@
 {
   "Emergency_Antibiotics": {
-    "Aminocyclitols": {
-      "Amkacin": {
+    "emergency_Aminocyclitols": {
+      "emergency_Amkacin": {
         "Dog": {
           "Method": "SC IM",
           "Frequency": "BID",
@@ -10,8 +10,8 @@
         }
       }
     },
-    "Carbapenems": {
-      "Ertapenem Sodium": {
+    "emergency_Carbapenems": {
+      "emergency_Ertapenem Sodium": {
         "Dog": {
           "Method": "IV SC",
           "minAmount": 30,
@@ -28,8 +28,8 @@
         }
       }
     },
-    "Cephalosporins": {
-      "Cephalexin": {
+    "emergency_Cephalosporins": {
+      "emergency_Cephalexin": {
         "Dog": {
           "Method": "PO",
           "Frequency": "BID",
@@ -38,8 +38,8 @@
         }
       }
     },
-    "Penicillins": {
-      "Amoxicillin": {
+    "emergency_Penicillins": {
+      "emergency_Amoxicillin": {
         "Dog": {
           "Method": "PO",
           "minAmount": 11,
@@ -53,7 +53,7 @@
           "Frequency": "SID"
         }
       },
-      "Amoxicillin/Clavulanic Acid": {
+      "emergency_Amoxicillin/Clavulanic Acid": {
         "Dog": {
           "Method": "PO",
           "minAmount": 13.75,
@@ -71,8 +71,8 @@
     }
   },
   "Emergency_Central Nervous System Drugs": {
-    "Anticonvulsants": {
-      "Imepitoin": {
+    "emergency_Anticonvulsants": {
+      "emergency_Imepitoin": {
         "Dog": {
           "Method": "SC IM",
           "minAmount": 10,
