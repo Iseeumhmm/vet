@@ -6,19 +6,18 @@ h1 {
 /* Header */
 
 .header-container {
-  /* position: relative;
-  top: 0; */
   width: 100%;
-  height: 100px;
-  text-align: center;
+  height: 75px;
+  text-align: left;
   color: #87a8d0;
-  background-color: #deecfc;
+  background-color: #87a8d0;
 }
 
 h1.home {
-  color: #364e68;
+  color: #ffffff;
   font-weight: 600;
-  padding-top: 25px;
+  padding-top: 10px;
+  padding-left: 20px;
 }
 
 
@@ -69,18 +68,18 @@ h1.home {
 
 .footer-container {
   width: 100%;
-  height: 100px;
+  height: 75px;
   position: absolute;
   bottom: 0;
   text-align: center;
   color: #87a8d0;
-  background-color: #deecfc;
+  background-color: #87a8d0;
 }
 
 h1.home-footer {
   color: #364e68;
   font-size: 2rem;
-  padding-top: 15px;
+  padding-top: 0px;
 }
 
 
@@ -128,9 +127,11 @@ p.home-footer {
 }
 
 p.weightText {
-  position: relative;
+  display: block;
+  margin-left: 18px;
+  /* position: relative;
   left: 180px;
-  bottom: 20px;
+  bottom: 20px; */
 }
 /* Button Styling */
 
@@ -157,7 +158,7 @@ input::-webkit-inner-spin-button {
 }
 
 .drug-container {
-  margin-top: 200px;
+
 }
 
 @media (device-width: 500px) {

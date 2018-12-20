@@ -12,7 +12,7 @@
     <%= units %>
   </p>
   <h1 class="drug-title">
-    <%= category %> (Dosages in mg/kg)</h1>
+    <%= category %> (Dosages calculated by mg/kg)</h1>
 
 
   <table class="table table-striped">
@@ -21,6 +21,7 @@
         <th scope="col">Drug</th>
         <th scope="col">Method</th>
         <th scope="col">Frequency</th>
+        <th scope="col">Dosage mg/kg</th>
         <th scope="col">Start mg</th>
         <th scope="col">Max mg</th>
       </tr>
@@ -36,6 +37,13 @@
         </td>
         <td>
           <%= drug.drugDetails.Frequency %>
+        </td>
+        <td>
+          <% if (drug.drugDetails.minAmount === drug.drugDetails.maxAmount) { %>
+            <%= drug.drugDetails.minAmount %>
+          <%} else { %>
+            <%= drug.drugDetails.minAmount %> - <%= drug.drugDetails.maxAmount %>
+          <% } %>
         </td>
         <% if (drug.drugDetails.tablet === true || drug.drugDetails.minAmount  === "------") { %>
         <td>
@@ -61,8 +69,3 @@
     </tbody>
   </table>
 </div>
-
-
-
-
-<%- include("partials/footer") -%>
