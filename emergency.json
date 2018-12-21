@@ -1,84 +1,310 @@
 {
-  "Emergency_Antibiotics": {
-    "emergency_Aminocyclitols": {
-      "emergency_Amkacin": {
+  "Susannes Christmas Eve": {
+    "Pumpernickel Bread and Dip": {
+      "Fozen Spinach": {
         "Dog": {
-          "Method": "SC IM",
-          "Frequency": "BID",
-          "minAmount": 10,
+          "Method": "FarmBoy",
+          "Frequency": "Bag",
+          "minAmount": 1,
           "maxAmount": 10
-        }
-      }
-    },
-    "emergency_Carbapenems": {
-      "emergency_Ertapenem Sodium": {
-        "Dog": {
-          "Method": "IV SC",
-          "minAmount": 30,
-          "maxAmount": 30,
-          "Notes": "Anecdotal",
-          "Frequency": "TID"
         },
         "Cat": {
-          "Method": "IV SC",
-          "minAmount": 30,
-          "maxAmount": 30,
-          "Notes": "Anecdotal",
-          "Frequency": "TID"
-        }
-      }
-    },
-    "emergency_Cephalosporins": {
-      "emergency_Cephalexin": {
-        "Dog": {
-          "Method": "PO",
-          "Frequency": "BID",
-          "minAmount": 22,
-          "maxAmount": 22
-        }
-      }
-    },
-    "emergency_Penicillins": {
-      "emergency_Amoxicillin": {
-        "Dog": {
-          "Method": "PO",
-          "minAmount": 11,
-          "maxAmount": 11,
-          "Frequency": "BID"
-        },
-        "Cat": {
-          "Method": "PO",
-          "minAmount": 11,
-          "maxAmount": 22,
-          "Frequency": "SID"
+          "Method": "FarmBoy",
+          "Frequency": "Bag",
+          "minAmount": 1,
+          "maxAmount": 3
         }
       },
-      "emergency_Amoxicillin/Clavulanic Acid": {
+      "Water Chesnuts": {
         "Dog": {
-          "Method": "PO",
-          "minAmount": 13.75,
-          "maxAmount": 13.75,
-          "Frequency": "SID"
+          "Method": "FarmBoy/Costco",
+          "Frequency": "Can",
+          "minAmount": 1,
+          "maxAmount": 3
         },
         "Cat": {
-          "Method": "PO",
-          "minAmount": "62.5mg(tab)",
-          "maxAmount": "62.5mg(tab)",
-          "tablet": true,
-          "Frequency": "SID"
+          "Method": "FarmBoy/Costco",
+          "Frequency": "Can",
+          "minAmount": 1,
+          "maxAmount": 3
+        }
+      },
+      "Round Pumpernickel": {
+        "Dog": {
+          "Method": "FarmBoy/Costco",
+          "Frequency": "Loaf",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "FarmBoy/Costco",
+          "Frequency": "Loaf",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      }
+    },
+    "Other niblits": {
+      "Cheese Tray": {
+        "Dog": {
+          "Method": "Costco?",
+          "Frequency": "Tray",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "Costco?",
+          "Frequency": "Tray",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Crackers": {
+        "Dog": {
+          "Method": "Costco?",
+          "Frequency": "Box",
+          "minAmount": 1,
+          "maxAmount": 3
+        },
+        "Cat": {
+          "Method": "Costco?",
+          "Frequency": "Box",
+          "minAmount": 1,
+          "maxAmount": 3
+        }
+      },
+      "Grapes": {
+        "Dog": {
+          "Method": "Costco?",
+          "Frequency": "Container",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "Costco?",
+          "Frequency": "Container",
+          "minAmount": 1,
+          "maxAmount": 1
         }
       }
     }
   },
-  "Emergency_Central Nervous System Drugs": {
-    "emergency_Anticonvulsants": {
-      "emergency_Imepitoin": {
+  "Christmas Morning": {
+    "Breakfast": {
+      "Eggs": {
         "Dog": {
-          "Method": "SC IM",
-          "minAmount": 10,
-          "maxAmount": 10,
-          "Notes": "",
-          "Frequency": "TID"
+          "Method": "Costco",
+          "Frequency": "Tray",
+          "minAmount": 1,
+          "maxAmount": 1,
+          "Notes": "Anecdotal"
+        },
+        "Cat": {
+          "Method": "Costco",
+          "Frequency": "Tray",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Syrup": {
+        "Dog": {
+          "Method": "Costco",
+          "Frequency": "Bottle",
+          "minAmount": 1,
+          "maxAmount": 1,
+          "Notes": "Anecdotal"
+        },
+        "Cat": {
+          "Method": "Costco",
+          "Frequency": "Bottle",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Prosecco": {
+        "Dog": {
+          "Method": "LCBO",
+          "Frequency": "Bottle",
+          "minAmount": 4,
+          "maxAmount": 4
+        },
+        "Cat": {
+          "Method": "LCBO",
+          "Frequency": "Bottle",
+          "minAmount": 4,
+          "maxAmount": 4
+        }
+      }
+    }
+  },
+  "Christmas Afternoon": {
+    "Supper": {
+      "Prime Rib": {
+        "Dog": {
+          "Method": "Costco",
+          "Frequency": "Slab",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "Costco",
+          "Frequency": "Slab",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Horseradish Root": {
+        "Dog": {
+          "Method": "FarmBoy",
+          "Frequency": "Root",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "FarmBoy",
+          "Frequency": "Root",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Carrots": {
+        "Dog": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Bag",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Bag",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Parsnips": {
+        "Dog": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Bag",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Bag",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Baking Potatoes": {
+        "Dog": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Each",
+          "minAmount": 7,
+          "maxAmount": 7
+        },
+        "Cat": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Each",
+          "minAmount": 7,
+          "maxAmount": 7
+        }
+      },
+      "Green Onions": {
+        "Dog": {
+          "Method": "FarmBoy",
+          "Frequency": "Bunch",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "FarmBoy",
+          "Frequency": "Bunch",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Granny Smith Apples": {
+        "Dog": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Each",
+          "minAmount": 6,
+          "maxAmount": 6
+        },
+        "Cat": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Each",
+          "minAmount": 6,
+          "maxAmount": 6
+        }
+      },
+      "Vanilla Ice Cream": {
+        "Dog": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Box",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Box",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Whip Cream": {
+        "Dog": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Each",
+          "minAmount": 1,
+          "maxAmount": 1
+        },
+        "Cat": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Each",
+          "minAmount": 1,
+          "maxAmount": 1
+        }
+      },
+      "Pilsbury Flakey Buns": {
+        "Dog": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Box",
+          "minAmount": 1,
+          "maxAmount": 3
+        },
+        "Cat": {
+          "Method": "Costco/FarmBoy",
+          "Frequency": "Box",
+          "minAmount": 1,
+          "maxAmount": 3
+        }
+      },
+      "Pickles": {
+        "Dog": {
+          "Method": "Garage",
+          "Frequency": "Each",
+          "minAmount": 1,
+          "maxAmount": 100
+        },
+        "Cat": {
+          "Method": "Garage",
+          "Frequency": "Each",
+          "minAmount": 1,
+          "maxAmount": 100
+        }
+      },
+      "Red Wine": {
+        "Dog": {
+          "Method": "LCBO",
+          "Frequency": "Each",
+          "minAmount": 1,
+          "maxAmount": 100
+        },
+        "Cat": {
+          "Method": "LCBO",
+          "Frequency": "Each",
+          "minAmount": 1,
+          "maxAmount": 100
         }
       }
     }
