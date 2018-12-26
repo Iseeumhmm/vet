@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  proxy:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    image: nginx-custom
+    ports:
+      - '80:80'
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: node-custom
+    volumes:
+      - ./data:/Users/rickheffren/Documents/WebDevelopment/vet/data

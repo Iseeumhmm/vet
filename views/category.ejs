@@ -34,8 +34,8 @@
 <nav>
   <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-standard-tab" data-toggle="tab" href="#nav-standard" role="tab" aria-controls="nav-standard" aria-selected="true">Standard</a>
-    <a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">Christmas Food List</a>
-    <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a> -->
+    <a class="nav-item nav-link" id="nav-category-tab" data-toggle="tab" href="#nav-category" role="tab" aria-controls="nav-category" aria-selected="false">By Category</a>
+    <a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">Emerg Crash Cart</a>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -45,7 +45,13 @@
 
       </iframe>
     </div>
+  </div>
+  <div class="tab-pane fade" id="nav-category" role="tabpanel" aria-labelledby="nav-category-tab">
+    <div class="iframe-div">
+      <iframe id="categoryFrame" class="iframe-container" frameborder="0" title="Category-Category" src="/_category-select">
 
+      </iframe>
+    </div>
   </div>
   <div class="tab-pane fade" id="nav-emergency" role="tabpanel" aria-labelledby="nav-emergency-tab">
     <div class="iframe-div">
@@ -54,7 +60,8 @@
       </iframe>
     </div>
   </div>
-  <!-- <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+</div>
+<!-- <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
 </div> -->
 
 

@@ -1,14 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const _jsonData = require(__dirname + "/data.json");
-const _emergencyJsonData = require(__dirname + "/emergency.json");
+const _jsonData = require(__dirname + "/data/data.json");
+const _emergencyJsonData = require(__dirname + "/data/emergency.json");
 const _ = require("lodash");
 const Collection = require(__dirname + "/collections.js");
 
 // Instatiate collections of drug data
 let standard = new Collection(_jsonData);
+let byDrug = new Collection(_jsonData);
 let emergency = new Collection(_emergencyJsonData);
+
 
 // Setup Server
 const app = express();
@@ -59,6 +61,13 @@ app.get("/category-select", function(req, res){
   res.render("category-select", renderPageData(standard, "category"));
 });
 
+app.get("/_category-select", function(req, res){
+  if (!byDrug.subCategoryPage) {
+    byDrug.getCategories(_jsonData);
+  }
+  res.render("_category-select", renderPageData(byDrug, "emergency"));
+});
+
 app.get("/emergency-select", function(req, res){
   if (!emergency.subCategoryPage) {
     emergency.getCategories(_emergencyJsonData);
@@ -98,6 +107,9 @@ app.get("/:collection/:first/:second", function(req, res) {
   if (req.params.collection === "standard") {
     passedCollection = standard;
     _data = _jsonData;
+  } else if (req.params.collection === "byDrug") {
+    passedCollection = emergency;
+    _data = _emergencyJsonData;
   } else if (req.params.collection === "emergency") {
     passedCollection = emergency;
     _data = _emergencyJsonData;
