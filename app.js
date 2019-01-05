@@ -30,11 +30,19 @@ app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
 
+// EXPRESS ROUTING
+
 // Home Route
-app.get("/", function(req, res) {
-  clearData()
-  res.render("home");
-});
+
+
+// app.get("/", function(req, res) {
+//   clearData()
+//   res.render("home");
+// });
+
+app.get("/"), (req, res) => {
+  res.render("landing");
+}
 
 app.post("/", function(req, res) {
   // check to see if it's being redirected to home page
@@ -74,6 +82,17 @@ app.get("/emergency-select", function(req, res){
   }
   res.render("emergency-select", renderPageData(emergency, "emergency"));
 });
+
+// Dynamically check for which page is passed ie. /stadard/selectPostDataParse]
+
+// app.get("/select/:page", function(req, res){
+//
+// });
+
+
+
+
+
 
 app.post("/category-select", function(req, res){
   selectPostDataParser(standard, req.body);
