@@ -6,46 +6,94 @@
         rgba($color-primary-light, 0.500),
         rgba($color-primary-dark, 0.9)), 
         url(../img/hero.jpg);
-
     background-size: cover;
     background-position: top;
     position: relative;
-
-    // clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    -webkit-clip-path: ellipse(100% 58% at 20% 35%);
-
-    &__logo-box {
-        position: absolute;
-        top: 4rem;
-        left: 4rem;
-    }
-    &__logo {
-        height: 8rem;
-    }
-    &__text-box {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center; 
-    }
-}
-
-.footer {
-    height: 65vh;
-    background-image: linear-gradient(
+    @include respond-px(900px) {
+        background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.500),
         rgba($color-primary-dark, 0.9)), 
-        url(../img/hero-footer.jpg);
+        url(../img/hero-medium.jpg);
+        background-size: cover;
+        background-position: top;
+    }
+    @include respond-px(600px) {
+        background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.500),
+        rgba($color-primary-dark, 0.9)), 
+        url(../img/hero-small.jpg);
+        background-size: cover;
+        background-position: top;
+    }
+    
+    -webkit-clip-path: ellipse(100% 58% at 20% 35%);
 
-    background-size: cover;
-    background-position: top;
-    position: relative;
-
-    // clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    -webkit-clip-path: ellipse(100% 58% at 90% 75%);
-
+    &__logo-box {
+        @include absCenter;
+        top: 20%;
+        @include respond(phone) {
+            top: 15%;
+        }
+        
+    }
+    &__logo {
+        height: 10rem;
+    }
+    &__text-box {
+        width: 85%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center; 
+        @include respond(phone) {
+            width: 90%;
+            top: 40%;
+        }
+    }
+    
 }
 
+.category {
+    &__header {
+        height: 50vh;
+        background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.500),
+        rgba($color-primary-dark, 0.7)), 
+        url(../img/hero-category-large.jpg);
+        background-size: cover;
+        background-position: bottom;
+        position: relative;
+        -webkit-clip-path: ellipse(70% 60% at 50% 38%);
+
+        @include respond(tab-port){
+            height: 50vh;
+            background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.500),
+            rgba($color-primary-dark, 0.9)), 
+            url(../img/hero-category.jpg);
+            background-size: cover;
+            background-position: bottom;
+            position: relative;
+            -webkit-clip-path: ellipse(70% 60% at 40% 40%);
+        }
+        &__logo-box {
+            position: absolute;
+            top: 6rem;
+            right: 6rem;
+            @include respond(phone) {
+                top: 15%;
+            }
+            
+        }
+        &__logo {
+            height: 10rem;
+        }
+    }
+    
+}
 

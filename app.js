@@ -40,19 +40,21 @@ app.listen(process.env.PORT || 3000, function() {
 //   res.render("home");
 // });
 
-app.get("/"), (req, res) => {
+app.get("/", function(req, res) {
+  clearData();
   res.render("landing");
-}
-
-app.post("/", function(req, res) {
-  // check to see if it's being redirected to home page
-  if (req.body.name === "homePage") {
-    res.redirect("/");
-  } else {
-    setAnimal(req.body.Animal);
-    res.redirect("category");
-  }
 });
+
+app.get("/companion/:animal", (req, res) => {
+  if (req.params.animal === "Dog") {
+    setAnimal(req.params.animal);
+  } else if (req.params.animal === "Cat") {
+    setAnimal(req.params.animal);
+  }
+  res.redirect("/category");
+});
+
+
 
 // Category Routes
 app.get("/category", function(req, res) {
@@ -69,12 +71,14 @@ app.get("/category-select", function(req, res){
   res.render("category-select", renderPageData(standard, "category"));
 });
 
-app.get("/_category-select", function(req, res){
-  if (!byDrug.subCategoryPage) {
-    byDrug.getCategories(_jsonData);
-  }
-  res.render("_category-select", renderPageData(byDrug, "emergency"));
-});
+// NEEDS TO BE IMPLEMENTED
+
+// app.get("/_category-select", function(req, res){
+//   if (!byDrug.subCategoryPage) {
+//     byDrug.getCategories(_jsonData);
+//   }
+//   res.render("_category-select", renderPageData(byDrug, "emergency"));
+// });
 
 app.get("/emergency-select", function(req, res){
   if (!emergency.subCategoryPage) {

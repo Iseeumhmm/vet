@@ -8,9 +8,14 @@
 @import "base/utilities";
 
 @import "components/button";
+@import "components/button-animals";
+@import "components/animal-box";
 
 
 @import "layout/header";
+@import "layout/footer";
 @import "layout/grid";
+@import "layout/category-main";
 
 @import "pages/home";
+@import "pages/category";

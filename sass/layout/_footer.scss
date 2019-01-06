@@ -1,0 +1,20 @@
+.footer {
+    height: 65vh;
+    @include respond(tab-port) {
+        height: 35vh;
+        padding-top: 10rem;
+    }
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.500),
+        rgba($color-primary-dark, 0.9)), 
+        url(../img/hero-footer.jpg);
+
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    // clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    -webkit-clip-path: ellipse(100% 58% at 90% 75%);
+
+}

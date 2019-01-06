@@ -1,5 +1,13 @@
 .row {
     max-width: $grid-width;
+    @include respond(tab-port) {
+        max-width: 55rem;
+
+    }
+    @include respond(phone) {
+        max-width: 35rem;
+
+    }
     margin: 0 auto;
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
@@ -12,11 +20,23 @@
 
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+            @include respond(tab-port){
+                margin-right: $gutter-horizontal-medium;
+            }
+            @include respond(phone){
+                margin-right: $gutter-horizontal-small;
+            }
         }
     }
 
     .col-1-of-2 {
-        width: calc((100% - #{$gutter-horizontal}) / 2);  
+        width: calc((100% - #{$gutter-horizontal}) / 2); 
+        @include respond(tab-port){
+            width: calc((100% - #{$gutter-horizontal-medium}) / 2);
+        } 
+        @include respond(phone){
+            width: calc((100% - #{$gutter-horizontal-small}) / 2);
+        } 
     }
 
     .col-1-of-3 {

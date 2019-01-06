@@ -1,4 +1,7 @@
 .btn {
+    @include respond-px(600px) {
+        visibility: hidden;
+    }
     &:link,
     &:visited {
         text-transform: uppercase;

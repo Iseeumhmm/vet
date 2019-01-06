@@ -1,0 +1,24 @@
+.animal-box {
+
+    height: 30rem;
+    background-color: rgba($color-white, .8);
+    font-size: 2.5rem;
+    padding: 2.5rem;
+    border-radius: 3px;
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    position: relative;
+    @include respond(tab-port) {
+        height: 20rem;
+        font-size: 1.5rem;
+    }
+    @include respond(phone) {
+        height: 15rem;
+        font-size: 1.5rem;
+    }
+    &:active {
+        transform: translateY(0.3rem);
+        box-shadow: 0 0.5rem 1rem rgba($color-black,.2);
+    }
+
+   
+}

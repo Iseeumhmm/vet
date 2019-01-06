@@ -1,0 +1,16 @@
+.section {
+    &__data {
+        padding: 3rem;
+        &__icon {
+            text-decoration: none;
+            color: $color-primary-dark;
+        }
+    }
+
+    &__icon-box {
+        width: 65%;
+        height: 35vh;
+    }
+
+    
+}

@@ -1,0 +1,15 @@
+.btn_animals {
+    display: inline-block;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    color: transparent;
+    @include absCenter;
+
+    // &-dog {
+    //     font-size: 3rem;
+    // }
+
+    // &-cat {
+    //     font-size: 3rem;
+    // }
+}
