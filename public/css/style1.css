@@ -217,6 +217,8 @@ body {
   .animal-box:active {
     transform: translateY(0.3rem);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .animal-box--pg2 {
+    height: 20rem; }
 
 .header {
   height: 95vh;
@@ -296,7 +298,7 @@ body {
       padding-top: 10rem; } }
 
 .row {
-  max-width: 80rem;
+  max-width: 96rem;
   margin: 0 auto; }
   @media (max-width: 56.25em) {
     .row {
@@ -363,9 +365,9 @@ body {
 
 .section-main {
   background-color: #f7f7f7;
-  padding: 23rem 0 25rem 0;
-  margin-top: -30vh;
-  margin-bottom: -32vh; }
+  padding: 21rem 0 25rem 0;
+  margin-top: -17vh;
+  margin-bottom: -35vh; }
   @media (max-width: 75em) {
     .section-main {
       margin-bottom: -24rem; } }
