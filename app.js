@@ -99,6 +99,7 @@ app.get("/emergency-select", function(req, res){
 
 
 app.post("/category-select", function(req, res){
+  console.log(req.body);
   selectPostDataParser(standard, req.body);
   res.render("category-select", {
     data: standard.dataPassObject(), passURL: "/category-redirect", target: "_top"

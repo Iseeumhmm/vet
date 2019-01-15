@@ -1,60 +1,55 @@
-
 .header {
-    height: 95vh;
-    background-image: linear-gradient(
-        to right bottom,
-        rgba($color-primary-light, 0.500),
-        rgba($color-primary-dark, 0.9)), 
-        url(../img/hero.jpg);
-    background-size: cover;
-    background-position: top;
+  &__container{
+    height: 16vh;
+    background-color: $color-primary;
     position: relative;
-    @include respond-px(900px) {
-        background-image: linear-gradient(
-        to right bottom,
-        rgba($color-primary-light, 0.500),
-        rgba($color-primary-dark, 0.9)), 
-        url(../img/hero-medium.jpg);
-        background-size: cover;
-        background-position: top;
-    }
-    @include respond-px(600px) {
-        background-image: linear-gradient(
-        to right bottom,
-        rgba($color-primary-light, 0.500),
-        rgba($color-primary-dark, 0.9)), 
-        url(../img/hero-small.jpg);
-        background-size: cover;
-        background-position: top;
-    }
-    
-    -webkit-clip-path: ellipse(100% 58% at 20% 35%);
+  }
 
-    &__logo-box {
-        @include absCenter;
-        top: 20%;
-        @include respond(phone) {
-            top: 15%;
-        }
-        
+  &__text {
+    margin-left: 2rem;
+    @include absCenter;
+    color: $color-white;
+    &--primary {
+      text-align: center;
+      font-size: 2rem;
+      line-height: 2.25rem;
+      letter-spacing: .75rem;
     }
-    &__logo {
-        height: 10rem;
+    &--secondary {
+      font-size: 1rem;
     }
-    &__text-box {
-        width: 85%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center; 
-        @include respond(phone) {
-            width: 90%;
-            top: 40%;
-        }
+  }
+  &__disclamer {
+    width: 100%;
+    line-height: 1.15rem;
+    color: $color-accent;
+    position: absolute;
+    top: 40%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    &--asterisk {
+      position: relative;
+      top: 1.1rem;
+      right: .25rem;
+      font-size: 3rem;
     }
-    
+    &--secondary {
+      text-align: justify;
+      font-size: .75rem;
+    }
+  }
+
+  &__logo {
+    height: 9rem;
+    @include absCenter;
+  }
+
+  &__accent-bar {
+    height: 3vh;
+    background-color: $color-primary-dark;
+  }
 }
+
 
 .category {
     &__header {
@@ -62,38 +57,23 @@
         background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.500),
-        rgba($color-primary-dark, 0.7)), 
+        rgba($color-primary-dark, 0.7)),
         url(../img/hero-category-large.jpg);
         background-size: cover;
         background-position: bottom;
         position: relative;
         -webkit-clip-path: ellipse(70% 60% at 50% 38%);
 
-        @include respond(tab-port){
-            height: 50vh;
-            background-image: linear-gradient(
-            to right bottom,
-            rgba($color-primary-light, 0.500),
-            rgba($color-primary-dark, 0.9)), 
-            url(../img/hero-category.jpg);
-            background-size: cover;
-            background-position: bottom;
-            position: relative;
-            -webkit-clip-path: ellipse(70% 60% at 40% 40%);
+
         }
         &__logo-box {
             position: absolute;
             top: 6rem;
             right: 6rem;
-            @include respond(phone) {
-                top: 15%;
-            }
-            
+
+
         }
         &__logo {
             height: 10rem;
         }
     }
-    
-}
-

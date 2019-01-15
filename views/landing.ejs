@@ -1,32 +1,35 @@
 <%- include("partials/header") -%>
+<div class="user-input">
+  <label class="radio radio--kgs">Kgs
+    <input class="checkbox--kgs" type="checkbox" name="kgs" checked="checked">
+    <span class="checkmark checkmark--kgs"></span>
+  </label>
+  <input class="user-input__weight" type="number" name="weight">
+  <label class="radio radio--lbs">Lbs
+    <input class="checkbox--lbs" type="checkbox" name="lbs" >
+    <span class="checkmark"></span>
+  </label>
+</div>
 
-<section class="section-animals">
-    <div class="u-center-text u-margin-bottom-big">
-            <h2 class="heading-secondary">
-                    Choose your companion animal
-            </h2>
-    </div>
-    <div class="row">
-        <div class="col-1-of-2">
-            <div class="animal-box">
-                <div class="animals-dog u-center-text">
-                        <a href="/companion/Dog" class="btn_animals btn_animals-dog  fas fa-dog fa-8x"></a>
-                </div>
-            </div>
-            
-        </div>
+<div class="card__box">
+  <div id="animal" class="card">
+    <div class="card__side card__side--front">
 
-        <div class="col-1-of-2">
-            <div class="animal-box">
-                <div class="animals-cat u-center-text">
-                        <a href="/companion/Cat" class="btn_animals btn_animals-cat fas fa-cat fa-8x"></a>
-                </div>
-            </div>
-            
-        </div>
+      <img  class="card__side--front--image" src="/img/hudson.png" alt="dog">
 
     </div>
-</section>
+    <div class="card__side card__side--back">
+      <img  class="card__side--back--image" src="/img/sammy.png" alt="cat">
+    </div>
+  </div>
+</div>
+<form id="form-data" action="/category-select" method="post">
+  <input type="hidden" id="pet" name="animal" value="dog">
+  <input type="hidden" id="units" name="units" value="kgs">
+  <input type="hidden" id="weight" name="weight" value="">
+  <input type="hidden" id="category-selected" name="category" value="">
+</form>
+
 
 
 <%- include("partials/footer") -%>

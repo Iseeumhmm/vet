@@ -1,0 +1,15 @@
+.user-input {
+  padding-top: 3rem;
+  text-align: center;
+  width: 100%;
+  &__weight {
+    font-size: 2rem;
+    margin-left: 4.5rem;
+    width: 5rem;
+    color: $color-accent;
+    border: solid ;
+    border-width: 3px ;
+    border-radius: 5px;
+    -webkit-appearance: none;
+  }
+}
