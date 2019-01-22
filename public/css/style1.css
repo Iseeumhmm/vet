@@ -75,6 +75,13 @@ body {
   line-height: 1.7;
   color: #757575; }
 
+input {
+  font-family: "Arimo", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #757575;
+  font-size: 1.5rem; }
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -102,9 +109,22 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 1px; }
-  @media (min-width: 56.25em) {
-    .heading-secondary {
-      font-size: 3.5rem; } }
+
+.drug__box--primary {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #757575; }
+
+.drug__box--secondary {
+  font-size: 1rem;
+  font-weight: 200; }
+
+.drug__box--tertiary {
+  font-size: 1.5rem; }
+
+.drug__box--bold {
+  font-size: 2.5rem;
+  font-weight: bold; }
 
 .u-center-text {
   text-align: center; }
@@ -223,7 +243,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding-top: 10rem; }
+    padding-top: 15rem; }
   .card__side {
     height: 60vh;
     color: #fff;
@@ -250,7 +270,7 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        height: 80%; }
+        height: 60%; }
   .card__rotate {
     transform: rotateY(180deg); }
   .card__rotate--back {
@@ -314,7 +334,8 @@ body {
 .header__container {
   height: 16vh;
   background-color: #F44336;
-  position: relative; }
+  position: relative;
+  margin-bottom: 1rem; }
 
 .header__text {
   margin-left: 2rem;
@@ -404,6 +425,12 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 0.5rem; }
+  .row__drug [class^="col-"]:not(:last-child) {
+    margin-right: 0; }
+  .row .col-1-of-3__drug--one {
+    width: 60%; }
+  .row .col-1-of-3__drug--two {
+    width: 20%; }
   .row--footer {
     max-width: 100%; }
   .row .col-1-of-2 {
@@ -440,6 +467,7 @@ body {
   height: 35vh; }
 
 .user-input {
+  background-color: #fff;
   padding-top: 3rem;
   text-align: center;
   width: 100%; }
@@ -458,3 +486,51 @@ body {
   padding: 21rem 0 25rem 0;
   margin-top: -17vh;
   margin-bottom: -35vh; }
+
+a:link, a:visited {
+  color: #757575;
+  text-decoration: none; }
+
+.category__heading {
+  text-align: center;
+  background-color: #f7f7f7;
+  text-transform: uppercase; }
+  .category__heading--title {
+    padding: 1rem;
+    font-size: 2rem;
+    color: #757575; }
+
+.category__body {
+  font-size: 1.5rem;
+  padding: 0 8rem; }
+
+.section__drug-list {
+  height: 100vh;
+  background-color: #f7f7f7; }
+
+.drug__box {
+  margin: 0 2rem;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #757575;
+  box-shadow: 0 2rem 3rem rgba(33, 33, 33, 0.15);
+  border-radius: 5px; }
+  .drug__box:not(:first-child) {
+    margin-top: 1rem; }
+
+.col-1-of-3__drug {
+  box-shadow: none;
+  background-color: #fff;
+  position: relative;
+  min-height: 7rem; }
+  .col-1-of-3__drug--two {
+    text-align: center; }
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .text-box--up {
+    margin-top: -1rem; }

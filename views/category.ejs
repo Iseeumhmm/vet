@@ -1,98 +1,20 @@
-<%- include("partials/category-header") -%>
+<%- include("partials/header") -%>
 
-<!-- Page Icon showing witch animal is being searched -->
-
-
-
-  
-  <section class="section-main">
-    <div class="row">
-
-        <div class="col-1-of-2">
-            <div class="animal-box animal-box--pg2">
-                <div class="animals-dog u-center-text">
-                        <a href="/companion/Dog" class="btn_animals btn_animals-<%= data.Animal %>  fas fa-<%= data.Animal %> fa-8x"></a>
-                </div>
-            </div>
-        </div>
-
-      <!-- <div class="col-1-of-2 u-center-text">
-        <div class="section__data_input-box">
-          <a href="/" class="section__data__icon fas fa-<%= data.Animal %> fa-5x"></a>
-        </div>
-        
-      </div> -->
-
-      <div class="col-1-of-2">
-        <div class="wInput">
-          <form id="weight" action="/category" method="post">
-            <input class="inputBtn" id="weightInput" type="number" name="weight" placeholder="0" value="<%= data.weight %>">
-            <label for="weightInput">
-              <%= data.units %></label>
-            <input type="hidden" id="postUnits" name="units" value="kgs">
-      
-          </form>
-        </div> 
-         <!-- Lbs Kgs toggle  -->
-  
-        <div class="inputBtn btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="kgs" autocomplete="off" checked> kgs
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="lbs" autocomplete="off"> lbs
-          </label>
-        </div>
-      </div>
-
-  </div>
- 
-
-  <nav>
-    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-standard-tab" data-toggle="tab" href="#nav-standard" role="tab" aria-controls="nav-standard" aria-selected="true">Standard</a>
-      <a class="nav-item nav-link" id="nav-category-tab" data-toggle="tab" href="#nav-category" role="tab" aria-controls="nav-category" aria-selected="false">By Category</a>
-      <a class="nav-item nav-link" id="nav-emergency-tab" data-toggle="tab" href="#nav-emergency" role="tab" aria-controls="nav-emergency" aria-selected="false">Emerg Crash Cart</a>
-    </div>
-  </nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-standard" role="tabpanel" aria-labelledby="nav-standard-tab">
-      <div class="iframe-div">
-        <iframe id="inlineFrame" class="iframe-container" frameborder="0" title="Select-Category" src="/category-select">
-  
-        </iframe>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="nav-category" role="tabpanel" aria-labelledby="nav-category-tab">
-      <div class="iframe-div">
-        <iframe id="categoryFrame" class="iframe-container" frameborder="0" title="Category-Category" src="/_category-select">
-  
-        </iframe>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="nav-emergency" role="tabpanel" aria-labelledby="nav-emergency-tab">
-      <div class="iframe-div">
-        <iframe id="emergencyFrame" class="iframe-container" frameborder="0" title="Emergency-Category" src="/emergency-select">
-  
-        </iframe>
-      </div>
+<section class="section__drug-list">
+  <div class="category__heading">
+    <div class="category__heading--title">
+      <h1>Systemic</h1>
     </div>
   </div>
-  <!-- <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-  </div> -->
-  
-  
-  </section>
-  
-
-<!-- Local Scripts -->
-
-<script src="/jquery/jquery.js"></script>
-<script src="script.js" charset="utf-8"></script>
-
-<!-- CDN Script Sources -->
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <div class="category__body">
+    <ul id="categoryUl">
+      <form id="categoryForm" action="/" method="post">
+        <% data.forEach(function(category){ %>
+        <li><input class="category__input" type="submit" name="category" value="<%= category %>"></input></li>
+        <% }); %>
+      </ul>
+      </form>
+  </div>
+</section>
 
 <%- include("partials/footer") -%>

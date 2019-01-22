@@ -19,6 +19,12 @@
     transform: translate(0, -50%);
 }
 
+@mixin horCenter {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px       Phone

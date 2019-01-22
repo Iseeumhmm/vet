@@ -2,7 +2,7 @@
     &__box {
       display: block;
       @include absCenter;
-      padding-top: 10rem;
+      padding-top: 15rem;
     }
     perspective: 150rem;
     -moz-perspective: 150rem;
@@ -34,7 +34,7 @@
           transform: rotateY(-180deg);
           &--image {
             @include absCenter;
-            height: 80%
+            height: 60%
           }
         }
     }

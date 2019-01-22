@@ -1,0 +1,35 @@
+.section {
+  &__drug-list {
+    height: 100vh;
+    background-color: $color-off-white;
+  }
+}
+
+.drug__box {
+  &:not(:first-child) {
+      margin-top: 1rem;
+  }
+  margin: 0 2rem;
+  background-color: $color-white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $color-grey-dark;
+  box-shadow: 0 2rem 3rem rgba($color-black, .15);
+  border-radius: 5px;
+}
+.col-1-of-3__drug {
+  box-shadow: none;
+  background-color: $color-white;
+  position: relative;
+  min-height: 7rem;
+  &--two {
+    text-align: center;
+  }
+}
+
+.text-box {
+  @include absCenter;
+  &--up {
+    margin-top: -1rem;
+  }
+}

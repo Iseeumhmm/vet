@@ -45,31 +45,42 @@ app.get("/", function(req, res) {
   res.render("landing");
 });
 
-app.get("/companion/:animal", (req, res) => {
-  if (req.params.animal === "Dog") {
-    setAnimal(req.params.animal);
-  } else if (req.params.animal === "Cat") {
-    setAnimal(req.params.animal);
-  }
-  res.redirect("/category");
-});
+// app.get("/drug-list", function(req, res) {
+//   clearData();
+//   res.render("drug-list");
+// });
+//
+// app.get("/category", function(req, res) {
+//   clearData();
+//   res.render("category");
+// });
+//
+// app.get("/companion/:animal", (req, res) => {
+//   if (req.params.animal === "Dog") {
+//     setAnimal(req.params.animal);
+//   } else if (req.params.animal === "Cat") {
+//     setAnimal(req.params.animal);
+//   }
+//   res.redirect("/category");
+// });
 
 
 
 // Category Routes
-app.get("/category", function(req, res) {
-  res.render("category", {
-    data: standard.dataPassObject(),
-  });
-});
+// app.get("/category", function(req, res) {
+//   res.render("category", {
+//     data: standard.dataPassObject(),
+//   });
+// });
 
 // Category-Select routes
-app.get("/category-select", function(req, res){
-  if (!standard.subCategoryPage) {
-    standard.getCategories(_jsonData);
-  }
-  res.render("category-select", renderPageData(standard, "category"));
-});
+// app.get("/category-select", function(req, res){
+//
+//   if (!standard.subCategoryPage) {
+//     standard.getCategories(_jsonData);
+//   }
+//   res.render("category-select", renderPageData(standard, "category"));
+// });
 
 // NEEDS TO BE IMPLEMENTED
 
@@ -80,12 +91,12 @@ app.get("/category-select", function(req, res){
 //   res.render("_category-select", renderPageData(byDrug, "emergency"));
 // });
 
-app.get("/emergency-select", function(req, res){
-  if (!emergency.subCategoryPage) {
-    emergency.getCategories(_emergencyJsonData);
-  }
-  res.render("emergency-select", renderPageData(emergency, "emergency"));
-});
+// app.get("/emergency-select", function(req, res){
+//   if (!emergency.subCategoryPage) {
+//     emergency.getCategories(_emergencyJsonData);
+//   }
+//   res.render("emergency-select", renderPageData(emergency, "emergency"));
+// });
 
 // Dynamically check for which page is passed ie. /stadard/selectPostDataParse]
 
@@ -94,16 +105,39 @@ app.get("/emergency-select", function(req, res){
 // });
 
 
-
+// app.post("/categories", function(req,res) {
+//   console.log(req.body.category);
+//   let categories = [];
+//   for (cat in _jsonData) {
+//     categories.push('"' + cat + '"');
+//   }
+//
+//   res.render("category", {data: categories});
+// });
 
 
 
 app.post("/category-select", function(req, res){
-  console.log(req.body);
-  selectPostDataParser(standard, req.body);
-  res.render("category-select", {
-    data: standard.dataPassObject(), passURL: "/category-redirect", target: "_top"
-  });
+  let dataSource = {};
+  switch (req.body.category) {
+    case "Systemic":
+      dataSource = _jsonData;
+      break;
+    default:
+  }
+
+  let passData = [];
+  for (category in dataSource) {
+    passData.push(category);
+  }
+
+  res.render("category", {data: passData});
+
+
+  // selectPostDataParser(standard, req.body);
+  // res.render("category-select", {
+  //   data: standard.dataPassObject(), passURL: "/category-redirect", target: "_top"
+  // });
 });
 
 app.post("/emergency-select", function(req, res){
