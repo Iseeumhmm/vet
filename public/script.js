@@ -25,8 +25,11 @@ let parent = window.parent.document;
 //     $('#weightInput').val(weight.toFixed(2));
 //   });
 // });
-
-
+let tier = parent.getElementById("tier").value;
+window.onpopstate = function() {
+      location.reload(true);
+      history.go(-tier);
+    }; history.pushState({}, '');
 
 
 

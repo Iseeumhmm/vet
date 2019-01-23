@@ -22,6 +22,8 @@ app.listen(process.env.PORT || 3000, function() {
 });
 
 // EXPRESS ROUTING
+let pageSubmitted = 0;
+let selectionHistory = [];
 
 app.get("/", function(req, res) {
   res.render("landing");
@@ -32,25 +34,52 @@ let units = "kgs";
 let weight = 0;
 let dataSource = {};
 
+const backbuttonClicked = (history, pages) => {
+  console.log("Pages to go back " + pages);
+  let _dataSource = selectDataSource(history[0]);
+  for (e = 1; e < history.length - pages; e++) {
+    _dataSource = _dataSource[history[e]];
+  }
+  return _dataSource;
+}
+
+const selectDataSource = (selected) => {
+  let _dataSource = {};
+  switch (selected) {
+    case "EMERGENCY":
+      _dataSource = _emergencyJsonData;
+      break;
+    default:
+    _dataSource = _jsonData;
+  }
+  return _dataSource;
+}
+
+
+
 app.post("/category-select", function(req, res){
-  let subData = {};
+  let selected = req.body.selected;
   let tier = req.body.tier;
+  let backbutton = pageSubmitted - tier;
+  console.log("tier: " + tier);
+
   if (tier === "0") {
     animal = req.body.animal;
     units = req.body.units;
-    weight = req.body.weight;
-    switch (req.body.selected) {
-      case "EMERGENCY":
-        dataSource = _emergencyJsonData;
-        break;
-      default:
-      dataSource = _jsonData;
+    if (units === "lbs") {
+      weight = Number(req.body.weight) * 2.204;
+    } else {
+      weight = Number(req.body.weight);
     }
+     dataSource = selectDataSource(selected);
   } else {
-    dataSource = dataSource[req.body.selected];
+    dataSource = dataSource[selected];
   }
 
-  if (tier === "2") {
+  if (tier > "1") {
+    tier++;
+    selectionHistory.push(selected);
+    pageSubmitted = tier;
     res.render("drug-list", {data: drugsByAnimal(dataSource)});
     return;
   }
@@ -60,13 +89,14 @@ app.post("/category-select", function(req, res){
     passData.push(element);
   }
 
-tier++;
+  tier++;
+  selectionHistory.push(selected);
+  pageSubmitted = tier;
   res.render("category", {
       data: passData,
       tier: tier
   });
 });
-
 // Functions
 
 const drugsByAnimal = (dataArray) => {

@@ -29,5 +29,8 @@ a {
     font-size: 1.5rem;
     padding: 0 8rem;
   }
-  
+  &__input {
+    border: 0;
+    background-color: transparent;
+  }
 }

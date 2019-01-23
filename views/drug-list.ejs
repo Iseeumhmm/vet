@@ -13,9 +13,9 @@
     <%let sameAmountN = minAmountN === maxAmountN ? minAmountN : 0%>
     <%let isNLabeled = data.drugs[each]["NLabel"] ? true : false %>
 
-    <%let weight = Number(data.weight)%>
-    <%let dosage = sameAmount ? weight * sameAmount : Math.round(average * weight * 10)/10%>
-    <%let dosageN = sameAmountN ? weight * sameAmountN : Math.round(averageN * weight * 10)/10%>
+    <%let weight = data.weight%>
+    <%let dosage = sameAmount ? Math.round(weight * sameAmount * 10)/10 : Math.round(average * weight * 10)/10%>
+    <%let dosageN = sameAmountN ? Math.round(weight * sameAmountN * 10)/10 : Math.round(averageN * weight * 10)/10%>
 
     <div class="drug__box">
       <div class="row row__drug row__top">
@@ -81,3 +81,4 @@
     </div>
   <% } %>
 </section>
+<input id="tier" type="hidden" name="tier" value=3>
