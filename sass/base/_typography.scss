@@ -70,5 +70,20 @@ input {
   &--bold {
     font-size: 2.5rem;
     font-weight: bold;
+    position: relative;
+    bottom: 1.9rem;
+  }
+  &--avg {
+    position: relative;
+    top: 1.9rem;
+  }
+  &--weight {
+    position: relative;
+    bottom: 1.9rem;
+  }
+  &--dosage {
+
+    position: relative;
+    top: .93rem;
   }
 }

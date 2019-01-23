@@ -1,146 +1,83 @@
 <%- include("partials/header") -%>
 <section class="section__drug-list">
-  <div class="drug__box">
-    <div class="row row__drug">
-      <div class="col-1-of-3__drug col-1-of-3__drug--one">
-        <span class="drug__box--primary">Cefaloceptin</span><br>
-        <span class="drug__box--secondary">- used for infections <br>
-        - 10-20 mg/kg in hogs</span>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          11mg/kg
+    <% for ( each in data.drugs) { %>
+    <%let minAmount = data.drugs[each]["Label"] ? Number(data.drugs[each]["Label"]["dosage"][0]) : 0%>
+    <%let maxAmount = data.drugs[each]["Label"] ? Number(data.drugs[each]["Label"]["dosage"][1]) : 0%>
+    <%let average = (minAmount + maxAmount)/2%>
+    <%let sameAmount = minAmount === maxAmount ? minAmount : 0%>
+    <%let isLabeled = data.drugs[each]["Label"] ? true : false %>
+
+    <%let minAmountN = data.drugs[each]["NLabel"] ? Number(data.drugs[each]["NLabel"]["dosage"][0]) : 0%>
+    <%let maxAmountN = data.drugs[each]["NLabel"] ? Number(data.drugs[each]["NLabel"]["dosage"][1]) : 0%>
+    <%let averageN = (minAmountN + maxAmountN)/2%>
+    <%let sameAmountN = minAmountN === maxAmountN ? minAmountN : 0%>
+    <%let isNLabeled = data.drugs[each]["NLabel"] ? true : false %>
+
+    <%let weight = Number(data.weight)%>
+    <%let dosage = sameAmount ? weight * sameAmount : Math.round(average * weight * 10)/10%>
+    <%let dosageN = sameAmountN ? weight * sameAmountN : Math.round(averageN * weight * 10)/10%>
+
+    <div class="drug__box">
+      <div class="row row__drug row__top">
+        <div class="col-1-of-3__drug col-1-of-3__drug--one col-1-of-3__drug--one-top">
+          <span class="drug__box--primary"><%=each%></span><br>
+          <span class="drug__box--secondary">
+            <span class="text-bold"><%=isLabeled ? "Labeled Use: " : "No Labeled use"%></span>
+            <%=isLabeled ? data.drugs[each]["Label"]["notes"] : ""%>
+        </div>
+        <div class="col-1-of-3__drug col-1-of-3__drug--two">
+          <div class="text-box">
+            <% if (isLabeled) { %>
+              <span class="drug__box--dosage"><%=sameAmount ? sameAmount : minAmount + "-" + maxAmount%> mg/kg</span>
+            <%}%>
+
+          </div>
+        </div>
+        <div class="col-1-of-3__drug col-1-of-3__drug--two">
+          <div class="text-box">
+            <span class="drug__box--bold">
+              <%if (isLabeled) { %>
+                <span class="drug__box--secondary drug__box--avg"><%=sameAmount ? "" : "Avg"%></span><br>
+                <%=dosage%>
+            </span>
+            <div class="text-box--up">
+              <span class="drug__box--secondary drug__box--weight">mg/<%=weight%>kg</span>
+            </div>
+            <%}%>
+          </div>
         </div>
       </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          <span class="drug__box--bold">30</span>
-          <div class="text-box--up">
-            <span class="drug__box--secondary">mg/10kg</span>
-          </div>
 
+       <!-- Off Label Use -->
+
+      <div class="row row__drug">
+        <div class="col-1-of-3__drug col-1-of-3__drug--one col-1-of-3__drug--one-bottom">
+          <span class="drug__box--secondary">
+            <span class="text-bold"><%=isNLabeled ? "Off Label Use: " : "No off labeled usage"%></span>
+            <%=isNLabeled ? data.drugs[each]["NLabel"]["notes"] : ""%>
+        </div>
+        <div class="col-1-of-3__drug col-1-of-3__drug--two">
+          <div class="text-box">
+            <% if (isNLabeled) { %>
+              <span class="drug__box--dosage"><%=sameAmountN ? sameAmountN : minAmountN + "-" + maxAmountN%> mg/kg</span>
+            <%}%>
+
+          </div>
+        </div>
+        <div class="col-1-of-3__drug col-1-of-3__drug--two">
+          <div class="text-box">
+            <span class="drug__box--bold">
+              <%if (isNLabeled) { %>
+                <span class="drug__box--secondary drug__box--avg"><%=sameAmountN ? "" : "Avg"%></span><br>
+                <%=dosageN%>
+            </span>
+            <div class="text-box--up">
+              <span class="drug__box--secondary drug__box--weight">mg/<%=weight%>kg</span>
+            </div>
+            <%}%>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="drug__box">
-    <div class="row row__drug">
-      <div class="col-1-of-3__drug col-1-of-3__drug--one">
-        <span class="drug__box--primary">Clavamox</span><br>
-        <span class="drug__box--secondary">- used for infections
-          - 10-20 mg/kg in hogs</span>
-        <span class="drug__box--secondary">- used for infections <br>
-        - 10-20 mg/kg in hogs</span>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          11mg/kg
-        </div>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          <span class="drug__box--bold">23</span>
-          <div class="text-box--up">
-            <span class="drug__box--secondary">mg/10kg</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="drug__box">
-    <div class="row row__drug">
-      <div class="col-1-of-3__drug col-1-of-3__drug--one">
-        <span class="drug__box--primary">Cefaloceptin</span><br>
-        <span class="drug__box--secondary">- used for infections <br>
-        - 10-20 mg/kg in hogs</span>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          11mg/kg
-        </div>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          <span class="drug__box--bold">30</span>
-          <div class="text-box--up">
-            <span class="drug__box--secondary">mg/10kg</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="drug__box">
-    <div class="row row__drug">
-      <div class="col-1-of-3__drug col-1-of-3__drug--one">
-        <span class="drug__box--primary">Cefaloceptin</span><br>
-        <span class="drug__box--secondary">- used for infections <br>
-        - 10-20 mg/kg in hogs</span>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          11mg/kg
-        </div>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          <span class="drug__box--bold">30</span>
-          <div class="text-box--up">
-            <span class="drug__box--secondary">mg/10kg</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="drug__box">
-    <div class="row row__drug">
-      <div class="col-1-of-3__drug col-1-of-3__drug--one">
-        <span class="drug__box--primary">Clavamox</span><br>
-        <span class="drug__box--secondary">- used for infections
-          - 10-20 mg/kg in hogs</span>
-        <span class="drug__box--secondary">- used for infections <br>
-        - 10-20 mg/kg in hogs</span>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          11mg/kg
-        </div>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          <span class="drug__box--bold">23</span>
-          <div class="text-box--up">
-            <span class="drug__box--secondary">mg/10kg</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="drug__box">
-    <div class="row row__drug">
-      <div class="col-1-of-3__drug col-1-of-3__drug--one">
-        <span class="drug__box--primary">Cefaloceptin</span><br>
-        <span class="drug__box--secondary">- used for infections <br>
-        - 10-20 mg/kg in hogs</span>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          11mg/kg
-        </div>
-      </div>
-      <div class="col-1-of-3__drug col-1-of-3__drug--two">
-        <div class="text-box">
-          <span class="drug__box--bold">30</span>
-          <div class="text-box--up">
-            <span class="drug__box--secondary">mg/10kg</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <% } %>
 </section>

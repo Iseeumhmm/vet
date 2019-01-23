@@ -1,176 +1,866 @@
 {
-  "Antibiotics": {
-    "Aminocyclitols": {
-      "Amkacin": {
-        "Dog": {
-          "Method": "SC IM",
-          "Frequency": "BID",
-          "minAmount": 10,
-          "maxAmount": 10
-        }
-      }
-    },
-    "Carbapenems": {
-      "Ertapenem Sodium": {
-        "Dog": {
-          "Method": "IV SC",
-          "minAmount": 30,
-          "maxAmount": 30,
-          "Notes": "Anecdotal",
-          "Frequency": "TID"
+    "Antibiotics": {
+      "Aminocyclitols": {
+        "Amikacin": {
+          "dogLabel": {
+            "frequency": "dogLabelBID",
+            "method": [
+              "SC",
+              "IM"
+            ],
+            "dosage": [
+              "10",
+              "10"
+            ],
+            "notes": "Dogs with skin and soft tissue infections should be treated for 7 days (minimum) and those with genitourinary infections should be treated for 7-21 days."
+          },
+          "dogNLabel": {
+            "frequency": "dogNLabelSID",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "15",
+              "30"
+            ],
+            "notes": "Susceptible infections and empirical therapy - Septic patients may be started at 20-30mg/kg IV SID"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelSID",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "10",
+              "15"
+            ],
+            "notes": "Septic patients may be started at 20mg/kg IV SID"
+          }
         },
-        "Cat": {
-          "Method": "IV SC",
-          "minAmount": 30,
-          "maxAmount": 30,
-          "Notes": "Anecdotal",
-          "Frequency": "TID"
-        }
-      }
-    },
-    "Cephalosporins": {
-      "Cefadroxil": {
-        "Dog": {
-          "Method": "PO",
-          "Frequency": "BID",
-          "minAmount": 22 ,
-          "maxAmount": 22
+        "Gentamicin Sulfate": {
+          "dogNLabel": {
+            "frequency": "dogNLabelSID",
+            "method": [
+              "IV",
+              "IM",
+              "SQ"
+            ],
+            "dosage": [
+              "9",
+              "12"
+            ],
+            "notes": "Susceptible infections"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelSID",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "5",
+              "8"
+            ],
+            "notes": "Susceptible infections"
+          }
         },
-        "Cat": {
-          "Method": "PO",
-          "Frequency": "SID",
-          "minAmount": 22 ,
-          "maxAmount": 22
+        "Neomycin Sulfate": {
+          "dogNLabel": {
+            "frequency": "dogNLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "20",
+              "20"
+            ],
+            "notes": "Used for acute management of hepatic encephalopathy as a means of decreasing urease producing bacteria in the GI tract."
+          },
+          "catNLabel": {
+            "frequency": "catNLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "20",
+              "20"
+            ],
+            "notes": "Used for acute management of hepatic encephalopathy as a means of decreasing urease producing bacteria in the GI tract."
+          }
+        },
+        "Tobramycin Sulfate": {
+          "dogNLabel": {
+            "frequency": "dogNLabelSID",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "9",
+              "14"
+            ],
+            "notes": "Susceptible infections"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelSID",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "5",
+              "8"
+            ],
+            "notes": "Susceptible infections"
+          }
         }
       },
-      "Cefovecin Sodium": {
-        "Dog": {
-          "Method": "SC",
-          "Frequency": "One time",
-          "minAmount": 8 ,
-          "maxAmount": 8
+      "Carbapenems": {
+        "Ertapenem Sodium": {
+          "dogNLabel": {
+            "frequency": "dogNLabelTID",
+            "method": [
+              "SC",
+              "IV"
+            ],
+            "dosage": [
+              "30",
+              "30"
+            ],
+            "notes": "Considered investigational - Little information is available for use in dogs and cats."
+          },
+          "catNLabel": {
+            "frequency": "catNLabelTID",
+            "method": [
+              "IV",
+              "SC"
+            ],
+            "dosage": [
+              "30",
+              "30"
+            ],
+            "notes": "Considered investigational - Little information is available for use in dogs and cats."
+          }
         },
-        "Cat": {
-          "Method": "SC",
-          "Frequency": "One time",
-          "minAmount": 8 ,
-          "maxAmount": 8
+        "Imipenen-Cilastatin Sodium": {
+          "dogNLabel": {
+            "frequency": "dogNLabel6_8",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "5",
+              "10"
+            ],
+            "notes": "Susceptible infections"
+          },
+          "catNLabel": {
+            "frequency": "catNLabel6_8",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "5",
+              "10"
+            ],
+            "notes": "Susceptible infections"
+          }
+        },
+        "Meropenem": {
+          "dogNLabel": {
+            "frequency": "dogNLabelBID",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "8.5",
+              "8.5"
+            ],
+            "notes": "Documented multidrug-resistant urinary tract infections.  Can be given  IV every 8 hours."
+          },
+          "catNLabel": {
+            "frequency": "catNLabelBID",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "8.5",
+              "8.5"
+            ],
+            "notes": "Documented multidrug-resistant urinary tract infections.  Can be given  IV every 8 hours."
+          }
         }
       },
-      "Cefpodoxime Proxetil": {
-        "Dog": {
-          "Method": "PO",
-          "Frequency": "SID",
-          "minAmount": 5 ,
-          "maxAmount": 10
+      "Cephalosporins": {
+        "Cefaclor": {
+          "dogNLabel": {
+            "frequency": "dogNLabelTID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "7",
+              "20"
+            ],
+            "notes": "Susceptible infections - Max dose 1gm"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelTID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "7",
+              "20"
+            ],
+            "notes": "Susceptible infections - Max dose 1gm"
+          }
+        },
+        "Cefadroxil": {
+          "dogLabel": {
+            "frequency": "dogLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "22",
+              "22"
+            ],
+            "notes": "Susceptible infections"
+          },
+          "catLabel": {
+            "frequency": "catLabelSID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "22",
+              "22"
+            ],
+            "notes": "Susceptible infections"
+          },
+          "dogNLabel": {
+            "frequency": "dogNLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "22",
+              "35"
+            ],
+            "notes": "Superficial pyoderma"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "22",
+              "22"
+            ],
+            "notes": "Orthopedic or pyoderma infections"
+          }
+        },
+        "Cefazolin Sodium": {
+          "dogNLabel": {
+            "frequency": "dogNLabelTID",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "15",
+              "35"
+            ],
+            "notes": "Susceptible infections - Average standard dose is 20mg/kg every 8 hours- slow IV,  large muscle IM - Other extra label uses include: Surgical prophylaxis, CRI and Neonates "
+          },
+          "catNLabel": {
+            "frequency": "catNLabelTID",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "15",
+              "35"
+            ],
+            "notes": "Susceptible infections - Average standard dose is 20mg/kg every 8 hours- slow IV,  large muscle IM - Other extra label uses include: Surgical prophylaxis, CRI and Neonates"
+          }
+        },
+        "Cefepime HCI": {
+          "dogNLabel": {
+            "frequency": "dogNLabelQID",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "40",
+              "40"
+            ],
+            "notes": "Susceptible infections"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelTID",
+            "method": [
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "50",
+              "50"
+            ],
+            "notes": "Susceptible infections"
+          }
+        },
+        "Cefotaxime Sodium": {
+          "dogNLabel": {
+            "frequency": "dogNLabelTID",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "20",
+              "80"
+            ],
+            "notes": "Susceptible infections - dosages range widely"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelTID",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "20",
+              "80"
+            ],
+            "notes": "Susceptible infections - dosages range widely"
+          }
+        },
+        "Cefotetan Disodium": {
+          "dogNLabel": {
+            "frequency": "dogNLabelTID",
+            "method": [
+              "SC",
+              "IV"
+            ],
+            "dosage": [
+              "30",
+              "30"
+            ],
+            "notes": "Susceptible infections"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelTID",
+            "method": [
+              "SC",
+              "IV"
+            ],
+            "dosage": [
+              "30",
+              "30"
+            ],
+            "notes": "Susceptible infections"
+          }
+        },
+        "Cefovecin Sodium": {
+          "dogLabel": {
+            "frequency": "dogLabelONCE",
+            "method": [
+              "SC"
+            ],
+            "dosage": [
+              "8",
+              "8"
+            ],
+            "notes": "Skin infections due to susceptible strains of Staph, Pseudintermedius or Strep"
+          },
+          "catLabel": {
+            "frequency": "catLabelONCE",
+            "method": [
+              "SC"
+            ],
+            "dosage": [
+              "8",
+              "8"
+            ],
+            "notes": "Skin infections caused by susceptible strains of Pasteurella multocida"
+          }
+        },
+        "Cefoxitin Sodium": {
+          "dogNLabel": {
+            "frequency": "dogNLabel6_8",
+            "method": [
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "30",
+              "30"
+            ],
+            "notes": "Susceptible infections"
+          },
+          "catNLabel": {
+            "frequency": "catNLabel6_8",
+            "method": [
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "30",
+              "30"
+            ],
+            "notes": "Susceptible infections"
+          }
+        },
+        "Cefpodoxime Proxetil": {
+          "dogLabel": {
+            "frequency": "dogLabelSID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "5",
+              "10"
+            ],
+            "notes": "Susceptible skin infections - 5-7 day to a maximum of 28 days."
+          },
+          "catLabel": {
+            "frequency": "catLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "5",
+              "5"
+            ],
+            "notes": "Susceptible skin or soft tissue infections - 5mg/kg twice daily or 10mg/kg once daily."
+          }
+        },
+        "Cefatazidime": {
+          "dogNLabel": {
+            "frequency": "dogNLabelq4h",
+            "method": [
+              "SC",
+              "IV",
+              "IM"
+            ],
+            "dosage": [
+              "30",
+              "30"
+            ],
+            "notes": "Susceptible P. aeruginosa infections"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelTID",
+            "method": [
+              "IM"
+            ],
+            "dosage": [
+              "30",
+              "30"
+            ],
+            "notes": "Susceptible infections"
+          }
+        },
+        "Ceftiofur Sodium": {
+          "dogLabel": {
+            "frequency": "dogLabelSID",
+            "method": [
+              "SC"
+            ],
+            "dosage": [
+              "2.2",
+              "2.2"
+            ],
+            "notes": "For susceptible UTI's"
+          },
+          "dogNLabel": {
+            "frequency": "dogNLabelBID",
+            "method": [
+              "SC"
+            ],
+            "dosage": [
+              "2.5",
+              "2.5"
+            ],
+            "notes": "Neonatal septicemia"
+          },
+          "catNLabel": {
+            "frequency": "catNLabel12_24",
+            "method": [
+              "SC"
+            ],
+            "dosage": [
+              "2",
+              "2"
+            ],
+            "notes": "UTI's"
+          }
+        },
+        "Ceftriaxone Sodium": {
+          "dogNLabel": {
+            "frequency": "dogNLabelSID",
+            "method": [
+              "SC",
+              "IV"
+            ],
+            "dosage": [
+              "25",
+              "25"
+            ],
+            "notes": "Alternate drug for borreliosis"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelSID",
+            "method": [
+              "SC",
+              "IV"
+            ],
+            "dosage": [
+              "25",
+              "25"
+            ],
+            "notes": "Alternate drug for borreliosis"
+          }
+        },
+        "Cefuroxime Axetil/Sodium": {
+          "dogNLabel": {
+            "frequency": "dogNLabel8_12",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "10",
+              "15"
+            ],
+            "notes": "Susceptible infection"
+          },
+          "catNLabel": {
+            "frequency": "catNLabel8_12",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "10",
+              "15"
+            ],
+            "notes": "Susceptible infection"
+          }
+        },
+        "Cephalexin": {
+          "dogLabel": {
+            "frequency": "dogLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "22",
+              "22"
+            ],
+            "notes": "Susceptible skin infections"
+          },
+          "dogNLabel": {
+            "frequency": "dogNLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "12",
+              "25"
+            ],
+            "notes": "Susceptible UTI's"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "22",
+              "30"
+            ],
+            "notes": "Susceptible skin infections"
+          }
         }
       },
-      "Ceftiofur Sodium": {
-        "Dog": {
-          "Method": "SC",
-          "Frequency": "SID",
-          "minAmount": 2.2 ,
-          "maxAmount": 2.2
+      "Macrolides": {
+        "Azithromycin": {
+          "dogNLabel": {
+            "frequency": "dogNLabelSID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "5",
+              "10"
+            ],
+            "notes": "Susceptible infections"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelSID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "5",
+              "10"
+            ],
+            "notes": "Susceptible infections - many other extra labeled uses can be found in official documentation."
+          }
+        },
+        "Clarithromycin": {
+          "dogNLabel": {
+            "frequency": "dogNLabel8_12",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "7.5",
+              "12.5"
+            ],
+            "notes": "15-25mg/kg max daily divided every 8-12 hours - Severe or refractory cases of canine leproid granuloma syndrome"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "7.5",
+              "7.5"
+            ],
+            "notes": "Susceptible infections"
+          }
+        },
+        "Erythromycin": {
+          "dogNLabel": {
+            "frequency": "dogNLabel8_12",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "10",
+              "20"
+            ],
+            "notes": "Susceptible infections - not commonly used in dogs, it has a short half-life, oral bioavailability can be very low and it can cause significant GI side effects."
+          },
+          "catNLabel": {
+            "frequency": "catNLabel8_12",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "10",
+              "20"
+            ],
+            "notes": "Susceptible infections - not commonly used in cats, it has a short half-life, oral bioavailability can be very low and it can cause significant GI side effects."
+          }
+        },
+        "Tylosin": {
+          "dogNLabel": {
+            "frequency": "dogNLabelSID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "25",
+              "25"
+            ],
+            "notes": "IBD, idiopathic antibiotic responsive diarrhea"
+          },
+          "catNLabel": {
+            "frequency": "catNLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "10",
+              "15"
+            ],
+            "notes": "Cryptosporidium spp associated diarrhea"
+          }
         }
       },
-      "Cephalexin": {
-        "Dog": {
-          "Method": "PO",
-          "Frequency": "BID",
-          "minAmount": 22,
-          "maxAmount": 22
-        }
-      }
-    },
-    "Penicillins": {
-      "Amoxicillin": {
-        "Dog": {
-          "Method": "PO",
-          "minAmount": 11,
-          "maxAmount": 11,
-          "Frequency": "BID"
+      "Penicillins": {
+        "Amoxicillin": {
+          "dogLabel": {
+            "frequency": "dogLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "11",
+              "11"
+            ],
+            "notes": "Respiratory tract infections, Genitourinary tract infections, Gastrointestinal tract infections and Bacterial dermatitis "
+          },
+          "catLabel": {
+            "frequency": "catLabelSID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "11",
+              "22"
+            ],
+            "notes": "Upper respiratory tract infections, Genitourinary tract infections, Gastrointestinal tract infections and Skin and soft tissue infections - max 50mg per cat daily"
+          },
+          "dogNLabel": {
+            "frequency": "dogNLabel8_12",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "11",
+              "15"
+            ],
+            "notes": "UTI's - Empirically (when waiting for culture/susceptibility results)"
+          },
+          "catNLabel": {
+            "frequency": "catNLabel8_12",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "11",
+              "15"
+            ],
+            "notes": "UTI's - Empirically (when waiting for culture/susceptibility results)"
+          }
         },
-        "Cat": {
-          "Method": "PO",
-          "minAmount": 11,
-          "maxAmount": 22,
-          "Frequency": "SID"
-        }
-      },
-      "Amoxicillin/Clavulanic Acid": {
-        "Dog": {
-          "Method": "PO",
-          "minAmount": 13.75,
-          "maxAmount": 13.75,
-          "Frequency": "BID"
+        "Amoxicillin Clavulanate": {
+          "dogLabel": {
+            "frequency": "dogLabelBID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "13.75",
+              "13.75"
+            ],
+            "notes": "Skin and soft tissue infections"
+          },
+          "catLabel": {
+            "tablet": "on",
+            "frequency": "catLabelSID",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "62.5",
+              "62.5"
+            ],
+            "notes": "Skin and soft tissue infections"
+          },
+          "dogNLabel": {
+            "frequency": "dogNLabel8_12",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "12.5",
+              "25"
+            ],
+            "notes": "UTI's - Empirically (when waiting for culture/susceptibility results)"
+          },
+          "catNLabel": {
+            "frequency": "catNLabel8_12",
+            "method": [
+              "PO"
+            ],
+            "dosage": [
+              "12.5",
+              "25"
+            ],
+            "notes": "UTI's - Empirically (when waiting for culture/susceptibility results)"
+          }
         },
-        "Cat": {
-          "Method": "PO",
-          "minAmount": "62.5mg(tab)",
-          "maxAmount": "62.5mg(tab)",
-          "tablet": true,
-          "Frequency": "BID"
-        }
-      },
-      "Ampicillin": {
-        "Dog": {
-          "Method": "SC IM",
-          "Frequency": "BID",
-          "minAmount": 6.6 ,
-          "maxAmount": 6.6
+        "Ampicillin": {
+          "dogLabel": {
+            "frequency": "dogLabelBID",
+            "method": [
+              "SC",
+              "IM"
+            ],
+            "dosage": [
+              "6.6",
+              "6.6"
+            ],
+            "notes": "Respiratory tract infections, UTI's, Gastrointestinal infections and Skin, soft tissue and post surgical infections"
+          },
+          "catLabel": {
+            "frequency": "catLabelBID",
+            "method": [
+              "SC",
+              "IM"
+            ],
+            "dosage": [
+              "6.6",
+              "6.6"
+            ],
+            "notes": "Respiratory tract infections, UTI's, Gastrointestinal infections and Skin, soft tissue and post surgical infections"
+          },
+          "dogNLabel": {
+            "frequency": "dogNLabel6_8",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "20",
+              "40"
+            ],
+            "notes": "Adjunctive antibiotic therapy for sepsis or susceptible systemic infections - other uses can be found in the official documentation"
+          },
+          "catNLabel": {
+            "frequency": "catNLabel6_8",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "20",
+              "40"
+            ],
+            "notes": "Adjunctive antibiotic therapy for sepsis or susceptible systemic infections - other uses can be found in the official documentation"
+          }
         },
-        "Cat": {
-          "Method": "SC IM",
-          "Frequency": "BID",
-          "minAmount": 6.6 ,
-          "maxAmount": 6.6
-        }
-      }
-    },
-    "Lincosamides": {
-      "Clindamycin": {
-        "Dog": {
-          "Method": "PO",
-          "minAmount": 5.5,
-          "maxAmount": 33,
-          "Frequency": "BID"
-        },
-        "Cat": {
-          "Method": "PO",
-          "minAmount": 11,
-          "maxAmount": 33,
-          "Frequency": "SID"
-        }
-      },
-      "Lincomycin HCI": {
-        "Dog": {
-          "Method": "PO",
-          "Frequency": "TID",
-          "minAmount": 15.4,
-          "maxAmount": 15.4,
-          "notes" : "OR 22mg/kg PO every 12 hours"
-        },
-        "Cat": {
-          "Method": "PO",
-          "Frequency": "TID",
-          "minAmount": 15.4,
-          "maxAmount": 15.4,
-          "notes" : "OR 22mg/kg PO every 12 hours"
-        }
-      }
-    }
-  },
-  "Central Nervous System Drugs": {
-    "Anticonvulsants": {
-      "Imepitoin": {
-        "Dog": {
-          "Method": "SC IM",
-          "minAmount": 10,
-          "maxAmount": 10,
-          "Notes": "",
-          "Frequency": "TID"
+        "Ampicillin Sodium-Sulbactam": {
+          "dogNLabel": {
+            "frequency": "dogNLabel6_8",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "22",
+              "30"
+            ],
+            "notes": "Empiric therapy in critically ill animals - other uses found in official documentation"
+          },
+          "catNLabel": {
+            "frequency": "catNLabel6_8",
+            "method": [
+              "IV"
+            ],
+            "dosage": [
+              "22",
+              "30"
+            ],
+            "notes": "Empiric therapy in critically ill animals - other uses found in official documentation"
+          }
         }
       }
     }
   }
-}

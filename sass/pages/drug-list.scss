@@ -22,9 +22,20 @@
   background-color: $color-white;
   position: relative;
   min-height: 7rem;
+  &--one {
+    &-top {
+      padding-bottom: 1rem;
+    }
+    &-bottom {
+      padding-top: 1rem;
+    }
+  }
+
+
   &--two {
     text-align: center;
   }
+
 }
 
 .text-box {

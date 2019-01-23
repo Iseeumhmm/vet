@@ -57,15 +57,6 @@ if (animal) {
     parent.querySelector("div.card__side--back").classList.toggle("card__rotate--back");
   });
 
-// Submit first category
-
-let firstCategory = parent.getElementById("categoryForm");
-console.log(firstCategory);
-if (firstCategory) {
-  firstCategory.addEventListener("submit", function() {
-    console.log("this is the firstCategory form: " + firstCategory);
-  })
-}
 
   // Toggle radio buttons
   let kgs = parent.querySelector("input.checkbox--kgs");

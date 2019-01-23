@@ -8,11 +8,15 @@
   </div>
   <div class="category__body">
     <ul id="categoryUl">
-      <form id="categoryForm" action="/" method="post">
-        <% data.forEach(function(category){ %>
-        <li><input class="category__input" type="submit" name="category" value="<%= category %>"></input></li>
+      <form id="categoryForm" action="/category-select" method="post">
+        <% data.forEach(function(selected){ %>
+        <li><input class="category__input" type="submit" name="selected" value="<%= selected %>"></input></li>
         <% }); %>
       </ul>
+
+      <input type="hidden" name="tier" value=<%=tier%>>
+
+
       </form>
   </div>
 </section>
