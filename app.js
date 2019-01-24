@@ -3,11 +3,12 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _jsonData = require(__dirname + "/data/data.json");
 const _emergencyJsonData = require(__dirname + "/data/emergency.json");
-const _ = require("lodash");
-const Collection = require(__dirname + "/collections.js");
 
-// Instatiate collections of drug data
-let standard = new Collection(_jsonData);
+//Variables
+let animal = "";
+let units = "kgs";
+let weight = 0;
+let selectionHistory = [];
 
 // Setup Server
 const app = express();
@@ -22,25 +23,64 @@ app.listen(process.env.PORT || 3000, function() {
 });
 
 // EXPRESS ROUTING
-let pageSubmitted = 0;
-let selectionHistory = [];
 
 app.get("/", function(req, res) {
   res.render("landing");
 });
 
-let animal = "";
-let units = "kgs";
-let weight = 0;
-let dataSource = {};
+app.post("/category-select", function(req, res){
+  let drilledData = {};
+  let selected = req.body.selected;
+  let page_id = req.body.page_id;
+  let backPages = selectionHistory.length - page_id;
+  if (backPages > 0) {
+    for (i = 0; i < backPages; i++){
+      selectionHistory.pop();
+    }
+  };
 
-const backbuttonClicked = (history, pages) => {
-  console.log("Pages to go back " + pages);
-  let _dataSource = selectDataSource(history[0]);
-  for (e = 1; e < history.length - pages; e++) {
-    _dataSource = _dataSource[history[e]];
+  if (page_id === "0") {
+    animal = req.body.animal;
+    units = req.body.units;
+    if (units === "lbs") {
+      weight = Number(req.body.weight) * 2.204;
+    } else {
+      weight = Number(req.body.weight);
+    }
+    selectionHistory.push(selected);
+    drilledData = selectDataSource(selected);
+  } else {
+    selectionHistory.push(selected);
+    drilledData = drillDown(selectionHistory);
   }
-  return _dataSource;
+  if (page_id === "2") {
+    page_id++;
+    res.render("drug-list", {data: drugsByAnimal(drilledData)});
+
+  } else {
+    let passData = [];
+    for (element in drilledData ) {
+      passData.push(element);
+    }
+
+    page_id++;
+    pageSubmitted = page_id;
+
+    res.render("category", {
+        data: passData,
+        page_id: page_id
+    });
+  }
+});
+// Functions
+
+const drillDown = (history) => {
+  let _history = history.slice(0);
+  let _data = selectDataSource(_history.shift());
+  _history.forEach((e) => {
+    _data = _data[e];
+  });
+  return _data;
 }
 
 const selectDataSource = (selected) => {
@@ -54,50 +94,6 @@ const selectDataSource = (selected) => {
   }
   return _dataSource;
 }
-
-
-
-app.post("/category-select", function(req, res){
-  let selected = req.body.selected;
-  let tier = req.body.tier;
-  let backbutton = pageSubmitted - tier;
-  console.log("tier: " + tier);
-
-  if (tier === "0") {
-    animal = req.body.animal;
-    units = req.body.units;
-    if (units === "lbs") {
-      weight = Number(req.body.weight) * 2.204;
-    } else {
-      weight = Number(req.body.weight);
-    }
-     dataSource = selectDataSource(selected);
-  } else {
-    dataSource = dataSource[selected];
-  }
-
-  if (tier > "1") {
-    tier++;
-    selectionHistory.push(selected);
-    pageSubmitted = tier;
-    res.render("drug-list", {data: drugsByAnimal(dataSource)});
-    return;
-  }
-
-  let passData = [];
-  for (element in dataSource) {
-    passData.push(element);
-  }
-
-  tier++;
-  selectionHistory.push(selected);
-  pageSubmitted = tier;
-  res.render("category", {
-      data: passData,
-      tier: tier
-  });
-});
-// Functions
 
 const drugsByAnimal = (dataArray) => {
   let drugData = {};
