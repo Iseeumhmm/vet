@@ -28,6 +28,14 @@ app.get("/", function(req, res) {
   res.render("landing");
 });
 
+app.get("/category-select", function(req, res) {
+  res.redirect("/");
+});
+
+app.get("/drug-list", function(req, res) {
+  res.redirect("/");
+});
+
 app.post("/category-select", function(req, res){
   let drilledData = {};
   let selected = req.body.selected;
@@ -43,7 +51,7 @@ app.post("/category-select", function(req, res){
     animal = req.body.animal;
     units = req.body.units;
     if (units === "lbs") {
-      weight = Number(req.body.weight) * 2.204;
+      weight = Number(req.body.weight) / 2.204;
     } else {
       weight = Number(req.body.weight);
     }
@@ -53,7 +61,7 @@ app.post("/category-select", function(req, res){
     selectionHistory.push(selected);
     drilledData = drillDown(selectionHistory);
   }
-  if (page_id === "2") {
+  if (page_id === "2" || selected === "EMERGENCY") {
     page_id++;
     res.render("drug-list", {data: drugsByAnimal(drilledData)});
 
@@ -100,17 +108,27 @@ const drugsByAnimal = (dataArray) => {
 
   for (e in dataArray) {
     drug = {};
+    let label = dataArray[e][animal + "Label"];
+
     if (dataArray[e][animal + "Label"]) {
+      if (dataArray[e][animal + "Label"]["units_kg"]) {
+        dataArray[e][animal + "Label"]["units_kg"] = true;
+      }
       drug.Label = dataArray[e][animal + "Label"];
     }
+
     if (dataArray[e][animal + "NLabel"]) {
+      if (dataArray[e][animal + "NLabel"]["units_kg"]) {
+        dataArray[e][animal + "NLabel"]["units_kg"] = true;
+      }
       drug.NLabel = dataArray[e][animal + "NLabel"];
     }
+
     drugData[e] = drug;
   };
-
+  let catOrDog = animal === "dog" ? true : false;
   let passData = {
-    animal: animal,
+    animal: catOrDog,
     weight: weight,
     units: units,
     drugs: drugData

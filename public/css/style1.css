@@ -115,30 +115,15 @@ input {
   font-weight: bold;
   color: #757575; }
 
-.drug__box--secondary {
-  font-size: 1rem;
-  font-weight: 200; }
-
 .drug__box--tertiary {
   font-size: 1.5rem; }
 
 .drug__box--bold {
   font-size: 2.5rem;
-  font-weight: bold;
-  position: relative;
-  bottom: 1.9rem; }
+  font-weight: 800; }
 
-.drug__box--avg {
-  position: relative;
-  top: 1.9rem; }
-
-.drug__box--weight {
-  position: relative;
-  bottom: 1.9rem; }
-
-.drug__box--dosage {
-  position: relative;
-  top: .93rem; }
+.fas {
+  font-size: 1.5rem; }
 
 .u-center-text {
   text-align: center; }
@@ -355,6 +340,7 @@ input {
   margin-bottom: 1rem; }
 
 .header__text {
+  text-align: center;
   margin-left: 2rem;
   position: absolute;
   top: 50%;
@@ -362,10 +348,9 @@ input {
   transform: translate(-50%, -50%);
   color: #fff; }
   .header__text--primary {
-    text-align: center;
-    font-size: 2rem;
-    line-height: 2.25rem;
-    letter-spacing: .75rem; }
+    font-size: 1.4rem;
+    line-height: 1.75rem;
+    letter-spacing: .25rem; }
   .header__text--secondary {
     font-size: 1rem; }
 
@@ -416,9 +401,7 @@ input {
 .footer {
   width: 100%;
   height: 50px;
-  font-size: 1.5rem;
   color: #fff;
-  background-color: #F44336;
   position: absolute;
   bottom: 0;
   left: 0; }
@@ -427,6 +410,10 @@ input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
+  .footer--text {
+    font-size: 1.5rem; }
+  .footer--background {
+    background-color: #F44336; }
 
 .row {
   height: 100%;
@@ -449,11 +436,26 @@ input {
   .row .col-1-of-3__drug--one {
     width: 60%; }
   .row .col-1-of-3__drug--two {
-    width: 20%; }
+    width: 20%;
+    min-height: 8rem; }
+  .row .col-1-of-3__drug--three {
+    width: 20%;
+    min-height: 8rem; }
   .row--footer {
     max-width: 100%; }
   .row .col-1-of-2 {
-    width: calc((100% - 0.5rem) / 2); }
+    position: relative;
+    height: 100%;
+    width: calc((100% - 2 * 0.5rem) / 3); }
+    .row .col-1-of-2--footer {
+      margin-right: 0 !important;
+      border-color: #BDBDBD;
+      border-style: solid;
+      border-width: 1px;
+      border-top-width: 2px;
+      border-radius: 5px;
+      border-bottom-width: 2px;
+      width: calc((100%  / 2)); }
   .row .col-1-of-3 {
     position: relative;
     height: 100%;
@@ -500,6 +502,10 @@ input {
     border-radius: 5px;
     -webkit-appearance: none; }
 
+.suggestions {
+  text-align: center;
+  color: #D32F2F; }
+
 .section-main {
   background-color: #BDBDBD;
   padding: 21rem 0 25rem 0;
@@ -520,12 +526,13 @@ a:link, a:visited {
     color: #757575; }
 
 .category__body {
-  font-size: 1.5rem;
-  padding: 0 8rem; }
+  font-size: 3rem;
+  padding: 0 5rem; }
 
 .category__input {
   border: 0;
-  background-color: transparent; }
+  background-color: transparent;
+  font-size: 3rem; }
 
 .section__drug-list {
   height: 100vh;
@@ -548,16 +555,23 @@ a:link, a:visited {
   position: relative;
   min-height: 7rem; }
   .col-1-of-3__drug--one-top {
+    padding-top: 1rem;
     padding-bottom: 1rem; }
   .col-1-of-3__drug--one-bottom {
-    padding-top: 1rem; }
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
   .col-1-of-3__drug--two {
-    text-align: center; }
+    text-align: center;
+    margin: 2rem 0 1rem; }
+  .col-1-of-3__drug--three {
+    text-align: center;
+    margin: 2rem 0 1rem; }
 
 .text-box {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
-  .text-box--up {
-    margin-top: -1rem; }
+  .text-box--tertiary {
+    line-height: 2rem;
+    padding-bottom: 1rem; }

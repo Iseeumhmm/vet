@@ -1,86 +1,210 @@
 {
-  "EmergJANCY_Antibiotics": {
-    "emergency_Aminocyclitols": {
-      "emergency_Amkacin": {
-        "Dog": {
-          "Method": "SC IM",
-          "Frequency": "BID",
-          "minAmount": 10,
-          "maxAmount": 10
-        }
-      }
+  "Epinephrine - Low Dose": {
+    "dogNLabel": {
+      "frequency": "every 3-5min",
+      "method": [
+        "IV",
+        "IO"
+      ],
+      "dosage": [
+        "0.01",
+        "0.01"
+      ],
+      "notes": "Low Dose - Cardiovascular resuscitation - Early in CPR - Note: Veterinarians are highly encouraged to obtain the RECOVER evidence and knowledge gap analysis on veterinary CPR.  Download for free at veccs.org"
     },
-    "emergency_Carbapenems": {
-      "emergency_Ertapenem Sodium": {
-        "Dog": {
-          "Method": "IV SC",
-          "minAmount": 30,
-          "maxAmount": 30,
-          "Notes": "Anecdotal",
-          "Frequency": "TID"
-        },
-        "Cat": {
-          "Method": "IV SC",
-          "minAmount": 30,
-          "maxAmount": 30,
-          "Notes": "Anecdotal",
-          "Frequency": "TID"
-        }
-      }
-    },
-    "emergency_Cephalosporins": {
-      "emergency_Cephalexin": {
-        "Dog": {
-          "Method": "PO",
-          "Frequency": "BID",
-          "minAmount": 22,
-          "maxAmount": 22
-        }
-      }
-    },
-    "emergency_Penicillins": {
-      "emergency_Amoxicillin": {
-        "Dog": {
-          "Method": "PO",
-          "minAmount": 11,
-          "maxAmount": 11,
-          "Frequency": "BID"
-        },
-        "Cat": {
-          "Method": "PO",
-          "minAmount": 11,
-          "maxAmount": 22,
-          "Frequency": "SID"
-        }
-      },
-      "emergency_Amoxicillin/Clavulanic Acid": {
-        "Dog": {
-          "Method": "PO",
-          "minAmount": 13.75,
-          "maxAmount": 13.75,
-          "Frequency": "SID"
-        },
-        "Cat": {
-          "Method": "PO",
-          "minAmount": "62.5mg(tab)",
-          "maxAmount": "62.5mg(tab)",
-          "tablet": true,
-          "Frequency": "SID"
-        }
-      }
+    "catNLabel": {
+      "frequency": "every 3-5min",
+      "method": [
+        "IV"
+      ],
+      "dosage": [
+        "0.01",
+        "0.01"
+      ],
+      "notes": "Low Dose - Cardiovascular resuscitation - Early in CPR - Note: Veterinarians are highly encouraged to obtain the RECOVER evidence and knowledge gap analysis on veterinary CPR.  Download for free at veccs.org"
     }
   },
-  "Emergency_Central Nervous System Drugs": {
-    "emergency_Anticonvulsants": {
-      "emergency_Imepitoin": {
-        "Dog": {
-          "Method": "SC IM",
-          "minAmount": 10,
-          "maxAmount": 10,
-          "Notes": "",
-          "Frequency": "TID"
-        }
-      }
+  "Epinephrine - High Dose": {
+    "dogNLabel": {
+      "frequency": "every 3-5min",
+      "method": [
+        "IV",
+        "IO"
+      ],
+      "dosage": [
+        "0.1",
+        "0.1"
+      ],
+      "notes": "High Dose - Cardiovascular resuscitation - Note: Veterinarians are highly encouraged to obtain the RECOVER evidence and knowledge gap analysis on veterinary CPR.  Download for free at veccs.org"
+    },
+    "catNLabel": {
+      "frequency": "every 3-5min",
+      "method": [
+        "IV"
+      ],
+      "dosage": [
+        "0.1",
+        "0.1"
+      ],
+      "notes": "High Dose - Cardiovascular resuscitation - Note: Veterinarians are highly encouraged to obtain the RECOVER evidence and knowledge gap analysis on veterinary CPR.  Download for free at veccs.org"
+    }
+  },
+  "Atropine Sulfate": {
+    "dogNLabel": {
+      "frequency": "every other BLS cycle",
+      "method": [
+        "IV",
+        "IO"
+      ],
+      "dosage": [
+        "0.04",
+        "0.04"
+      ],
+      "notes": "During cardiopulmonary cerebral resuscitation (CPCR) efforts for adjunctive treatment of bradycardias, incomplete AV block, etc."
+    },
+    "catNLabel": {
+      "frequency": "every other BLS cycle",
+      "method": [
+        "IV"
+      ],
+      "dosage": [
+        "0.04",
+        "0.04"
+      ],
+      "notes": "During cardiopulmonary cerebral resuscitation (CPCR) efforts for adjunctive treatment of bradycardias, incomplete AV block, etc."
+    }
+  },
+  "Lidocaine HCI": {
+    "dogLabel": {
+      "frequency": "slow IV/IO push",
+      "method": [
+        "IV",
+        "IO"
+      ],
+      "dosage": [
+        "2",
+        "2"
+      ],
+      "notes": "Antidysrhythmic agent - Refractory ventricular fibrillation (VF) pulseless ventricular tachycardia (VT) Ventricular tachycardia - For rapid conversion of life-threatening, sustained, and/or unstable ventricular tachycardia.  A consensus does not exist for a dosing protocol but an initial dosage of 2-4 mg/kg IV over 1-2 minutes while monitoring ECG may be considered.  See official documentation for more labeled and off labeled uses"
+    },
+    "catLabel": {
+      "frequency": "5-20 min",
+      "method": [
+        "IV"
+      ],
+      "dosage": [
+        "0.25",
+        "0.5"
+      ],
+      "notes": "Antiarrhythmic: Initially IV bolus of 0.25 - 0.5 mg/kg given slowly.  Can be repeated at 0.15 - 0.25 mg/kg in 5-20 minutes.  See official documentation for instruction and further use."
+    },
+    "dogNLabel": {
+      "frequency": "",
+      "method": [],
+      "dosage": [
+        "",
+        ""
+      ],
+      "notes": "See official documentation"
+    }
+  },
+  "Dexamethasone Sodium Phosphate": {
+    "dogLabel": {
+      "frequency": "3-5 days",
+      "method": [
+        "IV",
+        "IM",
+        "PO"
+      ],
+      "dosage": [
+        "0.5",
+        "1"
+      ],
+      "notes": "Anti-inflammatory; glucocorticoid agent - 0.25 - 1.25 mg (total dose) PO tablets daily  in single or two divided doses."
+    },
+    "catLabel": {
+      "frequency": "3-5 days",
+      "method": [
+        "IV",
+        "IM",
+        "PO"
+      ],
+      "dosage": [
+        "0.125",
+        "0.5"
+      ],
+      "notes": "Anti-inflammatory; glucocorticoid agent - 0.125 - 0.5 mg (total dose) PO tablets daily  in single or two divided doses."
+    },
+    "dogNLabel": {
+      "frequency": "SID",
+      "method": [
+        "IV"
+      ],
+      "dosage": [
+        "0.7",
+        "0.14"
+      ],
+      "notes": "Initial anti-inflammatory indications"
+    },
+    "catNLabel": {
+      "frequency": "SID",
+      "method": [
+        "IV"
+      ],
+      "dosage": [
+        "0.14",
+        "0.28"
+      ],
+      "notes": "Initial anti-inflammatory indications"
+    }
+  },
+  "Calcium Gluconate": {
+    "dogNLabel": {
+      "frequency": "SID",
+      "method": [
+        "PO"
+      ],
+      "dosage": [
+        "90",
+        "150"
+      ],
+      "notes": "Hyperphosphatemia associated with chronic kidney disease using a low-phosphorus diet. Other uses in official docs."
+    },
+    "catNLabel": {
+      "frequency": "SID",
+      "method": [],
+      "dosage": [
+        "90",
+        "150"
+      ],
+      "notes": "Hyperphosphatemia associated with chronic kidney disease using a low-phosphorus diet. Other uses in official docs."
+    }
+  },
+  "Vasopressin": {
+    "dogNLabel": {
+      "frequency": "3-5min",
+      "method": [
+        "IV",
+        "IO"
+      ],
+      "dosage": [
+        "0.02",
+        "0.08"
+      ],
+      "notes": "Adjunctive treatment during CPCR - From the RECOVER guidelines - Use of vasopressin as a substitute or in combination with epinephrine every 3-5 min may be considered.",
+      "units_kg": "units/kg"
+    },
+    "catNLabel": {
+      "frequency": "3-5min",
+      "method": [
+        "IV"
+      ],
+      "dosage": [
+        "0.02",
+        "0.08"
+      ],
+      "notes": "Adjunctive treatment during CPCR - From the RECOVER guidelines - Use of vasopressin as a substitute or in combination with epinephrine every 3-5 min may be considered.",
+      "units_kg": "units/kg"
     }
   }
 }

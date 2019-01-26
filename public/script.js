@@ -15,39 +15,56 @@ if (animal) {
     parent.querySelector("div.card__side--back").classList.toggle("card__rotate--back");
   });
 
-
   // Toggle radio buttons
   let kgs = parent.querySelector("input.checkbox--kgs");
-  let lbs = parent.querySelector("input.checkbox--lbs");
-  lbs.addEventListener("change", () => {
-    if (kgs.checked === true) {
-      kgs.checked = false;
-      parent.getElementById("units").value = "lbs";
-    }
-  });
-  kgs.addEventListener("change", () => {
-    if (lbs.checked === true) {
-      lbs.checked = false;
-      parent.getElementById("units").value = "kgs";
+  if (kgs) {
+    let lbs = parent.querySelector("input.checkbox--lbs");
+    lbs.addEventListener("change", () => {
+      if (kgs.checked === true) {
+        kgs.checked = false;
+        parent.getElementById("units").value = "lbs";
+      }
+    });
+    kgs.addEventListener("change", () => {
+      if (lbs.checked === true) {
+        lbs.checked = false;
+        parent.getElementById("units").value = "kgs";
 
-    }
-  });
+      }
+    });
+  }
+
+
   // Listen for category querySelector
   let systemic = parent.getElementById("systemic");
   let emergency = parent.getElementById("emergency");
-  let category = parent.getElementById("category");
   checkForClick(systemic);
   checkForClick(emergency);
-  checkForClick(category);
 
   function checkForClick(element){
-    element.addEventListener("click", () => {
-      console.log("you clicked " + element.innerHTML);
+      element.addEventListener("click", function () {
       let weight = parent.querySelector("input.user-input__weight").value;
       parent.getElementById("weight").value = weight;
       parent.getElementById("category-selected").value = element.innerText;
       parent.getElementById("form-data").submit();
     });
   }
-
 }
+
+  // create listener on header for home click
+
+  let home = parent.getElementById("header-container");
+  if (home) {
+    home.addEventListener("click", function(){
+      parent.location.href = ("/");
+    });
+  }
+
+// app in testing
+
+// let testing = parent.getElementById("suggestions");
+// if (testing) {
+//   testing.addEventListener("click", function() {
+//      parent.location.href = "mailto:iseeumhmm@gmail.com";
+//   });
+// }

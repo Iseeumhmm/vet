@@ -60,30 +60,16 @@ input {
     font-weight: bold;
     color: $color-grey-dark;
   }
-  &--secondary {
-    font-size: 1rem;
-    font-weight: 200;
-  }
+
   &--tertiary {
     font-size: 1.5rem;
   }
   &--bold {
     font-size: 2.5rem;
-    font-weight: bold;
-    position: relative;
-    bottom: 1.9rem;
+    font-weight: 800;
   }
-  &--avg {
-    position: relative;
-    top: 1.9rem;
-  }
-  &--weight {
-    position: relative;
-    bottom: 1.9rem;
-  }
-  &--dosage {
-
-    position: relative;
-    top: .93rem;
-  }
+}
+// dog and cat icons
+.fas {
+  font-size: 1.5rem;
 }
